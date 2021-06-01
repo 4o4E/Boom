@@ -1,0 +1,27 @@
+name: Boom
+version: ${project.version}
+main: com.author404e.boom.Boom
+api-version: 1.16
+authors: [ 404E ]
+website: https://www.mcbbs.net/thread-1150139-1-1.html
+softdepend: [PlaceholderAPI]
+commands:
+  boom:
+    description: 插件主命令
+    usage: /<command>
+  bm:
+    description: 插件主命令
+    usage: /<command>
+permissions:
+  boom.admin:
+    default: op
+  boom.commandbypass:
+    default: op
+  boom.transfer.*:
+    default: op
+  boom.easy.*:
+    default: op
+  boom.stick:
+    default: op
+  boom.weather:
+    default: op
