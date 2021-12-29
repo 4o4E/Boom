@@ -1,0 +1,119 @@
+#############
+# 实体相关设置
+# entity config
+#############
+
+# 实体生成几率限制
+# 几率的范围为0-100
+# 超出范围的数值不会处理
+# 0 即为不生成
+# 50 50%的概率生成
+# 100 100%生成(写了不如不写)
+spawn:
+  # 设置为true以启用此功能
+  enable: true
+  # 全局生成规则设置
+  # 此处的设置对所有世界都有效
+  # 优先级高于按世界设置
+  global:
+    # 这将会使所有世界的蝙蝠生成率为0
+    BAT: 0
+  # 在下面按世界添加生成规则
+  world_settings:
+    # 在此处按照以下的格式添加其他世界
+    world_example:
+      ENDERMAN: 90
+
+# 实体清理设置
+# 此实体清理不会清理
+# 1. 被栓绳拴住
+# 2. 在船或矿车上
+# 3. 拾取了物品
+# 4. 用命名牌命名
+# 的实体
+clean_entity:
+  # 设置为true以启用此功能
+  enable: true
+  # 清理间隔(单位秒)
+  time: 600
+  # 清理前的提醒列表, 可以自行添加
+  # 键应该是小于清理间隔的正整数
+  # 意为清理前多少 秒 发送此消息
+  # 可以自行增删
+  notice:
+    30: "&c将在30秒后开始清理实体"
+    10: "&c将在10秒后开始清理实体"
+    0: "&c正在清理实体"
+  # 清理完成的提醒消息
+  # 设置为 "" 以禁用
+  # {all}指所有实体的数量
+  # {count}指清理了的实体数量
+  finish: "&7[&a清理&7] &a发现了{all}个实体, 清理了其中的{count}个"
+  # 允许清理的实体类型(支持正则)
+  need_clean_entity:
+    - ZOMBIE
+    - SKELETON
+    - BLAZE
+    - (CAVE_)?SPIDER
+    - CREEPER
+    - ENDERMAN
+    - EVOKER
+    - GHAST
+    - (GLOW_)?SQUID
+    - HUSK
+    - PHANTOM
+    - PILLAGER
+  # 禁用此实体清理的世界(支持正则)
+  disable_world:
+    - 禁用此功能的世界名字
+
+# 物品清理设置
+clean_item:
+  # 设置为true以启用此功能
+  enable: true
+  # 清理间隔(单位秒)
+  time: 600
+  # 清理前的提醒列表, 可以自行添加
+  # 键应该是小于清理间隔的正整数
+  # 意为清理前多少 秒 发送此消息
+  # 可以自行增删
+  notice:
+    30: "&c将在30秒后开始清理掉落物"
+    10: "&c将在10秒后开始清理掉落物"
+    0: "&c正在清理掉落物"
+  # 清理完成的提醒消息
+  # 设置为 "" 以禁用
+  # {all}指所有掉落物的数量
+  # {count}指清理了的掉落物数量
+  finish: "&7[&a清理&7] &a发现了{all}个掉落物, 清理了其中的{count}个"
+  # 不清理的物品类型(支持正则)
+  not_clean_type:
+    - SHULKER_SHELL
+    - DIAMOND[A-Z_]*
+    - NETHERITE[A-Z_]*
+    - "[A-Z_]*SHULKER_BOX"
+    - "[A-Z_]*(HEAD|SKULL)"
+  # 禁用此物品清理的世界(支持正则)
+  disable_world:
+    - 禁用此功能的世界名字
+
+# 实体转换设置
+entity_transform:
+  # 苦力怕充能
+  # 放在下面other的列表中不会生效
+  creeper:
+    # 设置为true以启用此功能
+    enable: true
+    # 禁用此功能的世界(正则)
+    disable_world:
+      - 禁用此功能的世界名字
+  # 其他实体
+  other:
+    # 此示例配置将阻止村民变成女巫
+    - # 变之前的实体类型
+      from: VILLAGER
+      # 变之后的实体类型
+      to: WITCH
+      # 禁用此功能的世界(正则)
+      disable_world:
+        - 禁用此功能的世界名字

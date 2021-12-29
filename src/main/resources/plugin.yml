@@ -1,27 +1,29 @@
 name: Boom
-version: ${project.version}
-main: com.author404e.boom.Boom
-api-version: 1.16
+version: "${version}"
+main: com.e404.boom.Boom
+api-version: 1.13
 authors: [ 404E ]
-website: https://www.mcbbs.net/thread-1150139-1-1.html
-softdepend: [PlaceholderAPI]
 commands:
   boom:
-    description: 插件主命令
-    usage: /<command>
-  bm:
-    description: 插件主命令
-    usage: /<command>
+    description: "插件主命令"
+    aliases:
+      - bm
 permissions:
   boom.admin:
     default: op
+    description: "允许使用插件管理指令"
   boom.commandbypass:
     default: op
+    description: "允许使用被禁用的指令及其tab补全"
   boom.transfer.*:
     default: op
+    description: "允许使用所有的转接指令"
   boom.easy.*:
     default: op
+    description: "允许使用所有的简化指令"
   boom.stick:
     default: op
+    description: "允许获取和使用展示框/盔甲架调试棒"
   boom.weather:
     default: op
+    description: "允许使用天气管理指令/打开天气管理gui"

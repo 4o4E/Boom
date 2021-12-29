@@ -1,0 +1,55 @@
+#############
+# 方块相关设置
+# block config
+#############
+
+# 重生锚
+# 用于在下界以外类型的世界中阻止玩家点击重生锚
+# prevent player use respawn
+RESPAWN:
+  enable: true
+  disable_world:
+    - 禁用此功能的世界名字
+  # 阻止时的提示(支持颜色代码), 设置为 "" 以禁用
+  # Prompt when blocked (color code supported), set to "" to disable
+  message: "&c该世界不允许使用重生锚"
+  # 音效 (hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html)
+  # 设置为 "" 以禁用
+  # Sound, set to "" to disable
+  sound: ENTITY_VILLAGER_NO
+
+# 床
+# 用于在主世界以外类型的世界中阻止玩家点击床
+# prevent player use bed
+BED:
+  enable: true
+  disable_world:
+    - 禁用此功能的世界名字
+  message: "&c该世界不允许使用床"
+  sound: ENTITY_VILLAGER_NO
+
+# 末影人搬起方块
+# prevent enderman pickup block
+ENDERMAN:
+  # 若为true则启用检测
+  # If true, detection is enabled
+  enable: true
+  # 在以下列表(支持正则)中的世界禁用此检测
+  # Disable this detection in the world in the following list (regular support)
+  disable_world:
+    - 禁用此功能的世界名字
+
+# 耕地
+# 用于防止耕地被踩坏(同时包括玩家和其他实体)
+# prevent farmland being trampled
+FARMLAND:
+  enable: true
+  disable_world:
+    - 禁用此功能的世界名字
+
+# 火焰蔓延
+# prevent fire spread
+FIRE:
+  enable: true
+  disable_world:
+    - 禁用此功能的世界名字
