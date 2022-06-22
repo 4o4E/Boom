@@ -6,11 +6,13 @@
 
 支持`1.13.x`-`1.19.x`，`1.16.x`-`1.18.x`经过测试
 
+提供完整语言文件, 欢迎pr其他的语言文件
+
 **不支持`1.12`及以下版本**
 
 **不支持`Sponge`核心**
 
-**不支持`Mohist`/`Arclight`/`CatServer`等任何的混合核心**(你可以用, 但是遇到问题也不要反馈)
+**不支持`Mohist`/`Arclight`/`CatServer`等任何的混合核心**(你可以用, 但是遇到问题请不要在这儿反馈)
 
 [![Release](https://img.shields.io/github/v/release/4o4E/Boom?label=Release)](https://github.com/4o4E/Boom/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/4o4E/Boom/total?label=Download)](https://github.com/4o4E/Boom/releases)
@@ -23,7 +25,7 @@
 - 火焰蔓延
 - 火焰烧毁方块
 - 耕地保护
-- 实体转换
+- 实体转换(村民, 女巫, 僵尸村民, 溺尸)
 - 阻止末影人搬起方块
 - 使盔甲架生成的时候摆正自己(使盔甲架默认有双手)
 - 死亡时保留物品
@@ -31,7 +33,8 @@
 - 阻止使用床
 - 阻止使用重生锚
 - 阻止使用指令(指令转接的功能跳过此检测)
-- 指令转接，输入指令a以使用指令b(可以触发多条指令)
+- 指令转接，输入指令a以使用指令b(可以触发多条指令)(控制台转接指令)
+- 限制实体生成(百分比)
 
 # 配置文件
 
