@@ -222,7 +222,9 @@ object Config : EConfig(
                     if (it.keys.isEmpty()) return@mapNotNull null
                     TransformUseCommandConfig.Companion.CommandTrigger(
                         it["regex"].toString().toRegex(),
-                        (it["trigger"] as List<*>).map { s -> s.toString() }
+                        (it["trigger"] as List<*>).map { s -> s.toString() },
+                        it["permission"]?.toString(),
+                        it["noperm"]?.toString() ?: ""
                     )
                 }
             )
@@ -235,7 +237,9 @@ object Config : EConfig(
         companion object {
             data class CommandTrigger(
                 val regex: Regex,
-                val trigger: List<String>
+                val trigger: List<String>,
+                val permission: String?,
+                val noperm: String,
             ) {
                 fun match(command: String) = regex.matches(command)
             }

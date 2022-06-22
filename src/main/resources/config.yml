@@ -175,6 +175,9 @@ global:
         # 使用此指令所需的权限
         # 不写意为不需要权限
         permission: "boom.transform.tpyes"
+        # 没有权限时返回的消息, 设置为""则不返回消息
+        # 原指令依然会被取消
+        noperm: "你没有权限"
       - # 另一条匹配规则 , 玩家使用 /tpno 的时候触发
         regex: '(?i)tpno(\s+.*)?'
         trigger:
