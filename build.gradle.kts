@@ -19,7 +19,7 @@ repositories {
 dependencies {
     // spigot
     compileOnly("org.spigotmc:spigot-api:1.16.5-R0.1-SNAPSHOT")
-    // Bstats
+    // eplugin
     implementation("top.e404:eplugin:1.0.0")
 }
 
