@@ -38,6 +38,7 @@ tasks {
         archiveFileName.set("${project.name}-${project.version}.jar")
         exclude("META-INF/*")
         relocate("org.bstats", "top.e404.boom.bstats")
+        relocate("kotlin", "kotlin1_7_0")
 
         doFirst {
             for (file in File("jar").listFiles() ?: arrayOf()) {
