@@ -40,6 +40,12 @@
 
 [config.yml](src/main/resources/config.yml)
 
+# 语言文件
+
+[lang.yml](src/main/resources/lang.yml)
+
+欢迎pr其他的语言文件
+
 # 如何配置
 
 ```yaml
