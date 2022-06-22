@@ -1,0 +1,37 @@
+name: Boom
+version: "${version}"
+main: top.e404.boom.Boom
+api-version: 1.13
+authors: [ 404E ]
+commands:
+  boom:
+    description: 插件主命令
+    aliases:
+      - bm
+permissions:
+  boom.admin:
+    default: op
+    description: 允许使用插件指令
+
+  boom.bypass.command:
+    default: op
+    description: 允许跳过指令过滤
+
+  boom.weather:
+    default: op
+    description: 允许使用所有天气指令
+
+    children:
+      boom.weather.sun:
+        default: op
+        description: 允许切换天气为晴
+      boom.weather.rain:
+        default: op
+        description: 允许切换天气为雨
+      boom.weather.thunder:
+        default: op
+        description: 允许切换天气为雷暴
+
+  boom.stick:
+    default: op
+    description: 允许使用盔甲架调试棒

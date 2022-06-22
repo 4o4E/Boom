@@ -1,0 +1,89 @@
+prefix: "&7[&aBoom&7]"
+debug_prefix: "&7[&6BoomDebug&7]"
+
+debug:
+  console_enable: "&f已临时(修改config.yml永久设置)&a启用&bDebug&f, 下次重启前你将会收到&bDebug&f消息, 再使用一次此指令以&c禁用"
+  console_disable: "&f已临时(修改config.yml永久设置)&c禁用&bDebug&f, 下次重启前你不会收到&bDebug&f消息, 再使用一次此指令以&a启用"
+  player_enable: "&f已&a启用&bDebug&f, 你将会收到&bDebug&f消息, 再使用一次此指令以&c禁用"
+  player_disable: "&f已&c禁用&bDebug&f, 你不会收到&bDebug&f消息, 再使用一次此指令以&a启用"
+
+message:
+  noperm: "&c无权限"
+  non_player: "&c仅玩家可用"
+  unknown_command: "&c未知指令"
+  invalid_args: "&c无效参数"
+
+explosion:
+  debug_pass: "未处理实体爆炸(entity: {entity}, world: {world}, x: {x}, y: {y}, z: {z})"
+  debug_cancel: "取消实体爆炸(entity: {entity}, world: {world}, x: {x}, y: {y}, z: {z})"
+  debug_prevent: "阻止实体爆炸破坏方块(entity: {entity}, world: {world}, x: {x}, y: {y}, z: {z})"
+
+fire:
+  debug_prevent_spread: "阻止火焰蔓延(world: {world}, x: {x}, y: {y}, z: {z})"
+  debug_pass_spread: "未处理火焰蔓延(world: {world}, x: {x}, y: {y}, z: {z})"
+  debug_prevent_ignite: "阻止火焰烧毁方块(world: {world}, x: {x}, y: {y}, z: {z})"
+  debug_pass_ignite: "未处理火焰烧毁方块(world: {world}, x: {x}, y: {y}, z: {z})"
+
+farmland:
+  debug_protect_by_entity: "阻止耕地被实体踩坏(world: {world}, x: {x}, y: {y}, z: {z})"
+  debug_pass_by_entity: "未处理耕地被实体踩坏(world: {world}, x: {x}, y: {y}, z: {z})"
+  debug_protect_by_player: "阻止耕地被玩家踩坏(player: {player}, world: {world}, x: {x}, y: {y}, z: {z})"
+  debug_pass_by_player: "未处理耕地被玩家踩坏(player: {player}, world: {world}, x: {x}, y: {y}, z: {z})"
+
+wither:
+  debug_prevent_replace: "阻止凋灵替换方块(world: {world}, x: {x}, y: {y}, z: {z})"
+  debug_pass_replace: "未处理凋灵替换方块(world: {world}, x: {x}, y: {y}, z: {z})"
+
+enderman:
+  debug_prevent_pickup: "阻止末影人搬起方块(world: {world}, x: {x}, y: {y}, z: {z})"
+  debug_pass_pickup: "未处理末影人搬起方块(world: {world}, x: {x}, y: {y}, z: {z})"
+
+bed:
+  prevent_use: "阻止玩家使用床(player: {player}, world: {world}, x: {x}, y: {y}, z: {z})"
+  pass_use: "未处理玩家使用床(player: {player}, world: {world}, x: {x}, y: {y}, z: {z})"
+
+respawn_anchor:
+  prevent_use: "阻止玩家使用重生锚(player: {player}, world: {world}, x: {x}, y: {y}, z: {z})"
+  pass_use: "未处理玩家使用重生锚(player: {player}, world: {world}, x: {x}, y: {y}, z: {z})"
+
+debug_limit_spawn: "限制实体生成(entity: {entity}, world: {world}, x: {x}, y: {y}, z: {z})"
+
+transform:
+  prevent_villager_to_witch: "阻止村民被雷击转换成女巫(world: {world}, x: {x}, y: {y}, z: {z})"
+  pass_villager_to_witch: "未处理村民被雷击转换成女巫(world: {world}, x: {x}, y: {y}, z: {z})"
+
+  prevent_villager_to_zombie_villager: "阻止村民被僵尸转换成僵尸村民(world: {world}, x: {x}, y: {y}, z: {z})"
+  pass_villager_to_zombie_villager: "未处理村民被僵尸转换成僵尸村民(world: {world}, x: {x}, y: {y}, z: {z})"
+
+  prevent_zombie_villager_to_villager: "阻止僵尸村民被治愈转换成村民(world: {world}, x: {x}, y: {y}, z: {z})"
+  pass_zombie_villager_to_villager: "未处理僵尸村民被治愈转换成村民(world: {world}, x: {x}, y: {y}, z: {z})"
+
+  prevent_zombie_to_drowned: "阻止僵尸转换成溺尸(world: {world}, x: {x}, y: {y}, z: {z})"
+  pass_zombie_to_drowned: "未处理僵尸转换成溺尸(world: {world}, x: {x}, y: {y}, z: {z})"
+
+armorstand:
+  invalid: "&c盔甲架不存在或过远"
+  rotated: "&a已旋转盔甲架"
+  set_marker: "&f已设置盔甲架&a无碰撞箱&f, 再次点击切换"
+  unset_marker: "&f已设置盔甲架&c有碰撞箱&f, 再次点击切换"
+  set_visible: "&f已设置盔甲架&a可见&f ,再次点击切换"
+  unset_visible: "&f已设置盔甲架&c不可见&f ,再次点击切换"
+
+  debug_fix: "摆正盔甲架(world: {world}, x: {x}, y: {y}, z: {z})"
+  debug_unfix: "跳过未启用的摆正盔甲架(world: {world}, x: {x}, y: {y}, z: {z})"
+
+item_frame:
+  unsupported_fixed_version: "&c1.16之前的版本不支持展示框修改"
+  set_fixed: "&f已设置展示框&a不可破坏&f ,再次点击切换"
+  unset_fixed: "&f已设置展示框&c可破坏&f ,再次点击切换"
+  set_visible: "&f已设置展示框&a可见&f ,再次点击切换"
+  unset_visible: "&f已设置展示框&c不可见&f ,再次点击切换"
+
+command:
+  debug_remove_complete: "从玩家指令补全中移除指令(player: {player}, remove: {remove})"
+  debug_not_remove_complete: "未处理玩家指令补全(player: {player})"
+  debug_player_use_disabled: "玩家使用禁用指令(player: {player}, command: {command})"
+  debug_player_use_transformed: "玩家使用转接指令(player: {player}, src: {command}, trigger: {trigger})"
+  debug_console_use_transformed: "控制台使用转接指令(src: {command}, trigger: {trigger})"
+
+debug_on_death: "处理玩家死亡(保留经验: {lvl}, 保留背包: {inv}, player: {player}, world: {world}, x: {x}, y: {y}, z: {z})"

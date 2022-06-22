@@ -1,0 +1,205 @@
+# 若设置为true则会在控制台输出debug信息
+debug: false
+# 检查更新
+update: true
+
+# 全局设置
+# 调用时先查找下方单独世界设置(each), 若未找到则使用全局设置
+global:
+  # 爆炸相关设置
+  # enable为false时不处理
+  # cancel为false时爆炸不会破坏方块
+  # cancel为true时爆炸将会被取消
+  explosion:
+    # 苦力怕
+    CREEPER:
+      # 是否启用, 设置为false则不处理
+      enable: true
+      # 设置为true直接取消爆炸
+      cancel: false
+
+    # TNT
+    PRIMED_TNT:
+      # 是否启用, 设置为false则不处理
+      enable: true
+      # 设置为true直接取消爆炸
+      cancel: false
+
+    # 末影水晶
+    ENDER_CRYSTAL:
+      # 是否启用, 设置为false则不处理
+      enable: true
+      # 设置为true直接取消爆炸
+      cancel: false
+
+    # 凋灵出生
+    WITHER:
+      # 是否启用, 设置为false则不处理
+      # 设置为true则凋灵受到伤害时不替换3x3x3范围内的方块
+      enable: true
+
+    # 凋灵头颅
+    WITHER_SKULL:
+      # 是否启用, 设置为false则不处理
+      enable: true
+      # 设置为true直接取消爆炸
+      cancel: false
+
+    # 恶魂火球
+    FIREBALL:
+      # 是否启用, 设置为false则不处理
+      enable: true
+      # 设置为true直接取消爆炸
+      cancel: false
+
+    # TNT矿车
+    MINECART_TNT:
+      # 是否启用, 设置为false则不处理
+      enable: true
+      # 设置为true直接取消爆炸
+      cancel: false
+
+  # 设置为true则不允许火焰蔓延
+  disable_fire_spread: false
+
+  # 设置为true则不允许火焰烧毁方块
+  disable_fire_burn: false
+
+  # 设置为true则实体无法踩坏耕地
+  protect_farmland: true
+
+  # 设置为true则防止闪电将村民转变成女巫
+  prevent_villager_to_witch: false
+
+  # 设置为true则防止僵尸将村民转变成僵尸村民
+  prevent_villager_to_zombie: false
+
+  # 设置为true则防止僵尸村民转变成村民
+  prevent_zombie_villager_to_villager: false
+
+  # 设置为true则防止僵尸转变成溺尸
+  prevent_zombie_to_drowned: false
+
+  # 设置为true则阻止末影人搬起方块
+  prevent_enderman_pickup: true
+
+  # 设置为true使盔甲架生成的时候摆正自己(使盔甲架默认有双手)
+  fix_armorstand_pose: false
+
+  # 死亡时保留物品
+  # 设置为true则主动处理
+  # 否则不处理, 由其他插件或原版处理
+  keep_inventory_on_death: false
+
+  # 死亡时保留等级
+  # 设置为true则主动处理
+  # 否则不处理, 由其他插件或原版处理
+  keep_level_on_death: false
+
+  # 阻止使用床
+  prevent_use_bed:
+    # 是否启用
+    enable: false
+    # 拒绝时返回的消息, 允许使用颜色代码&
+    message: "&c该世界不能使用床"
+    # 阻止时发出的音效, 设置为空以禁用
+    sound:
+      # 类型 https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html
+      type: "ENTITY_VILLAGER_NO"
+      # 音量 范围 0 - 1
+      volume: 1.0
+      # 音调 范围 0 - 1
+      pitch: 1.0
+
+  # 阻止使用重生锚
+  prevent_use_respawn_anchor:
+    # 是否启用
+    enable: false
+    # 拒绝时返回的消息, 允许使用颜色代码&
+    message: "&c该世界不能使用重生锚"
+    # 阻止时发出的音效, 设置为空以禁用
+    sound:
+      # 类型 https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html
+      type: "ENTITY_VILLAGER_NO"
+      # 音量 范围 0 - 1
+      volume: 1.0
+      # 音调 范围 0 - 1
+      pitch: 1.0
+
+  # 阻止使用指令, 下方指令转接的功能将会跳过此检测
+  # 有权限 boom.bypass.command 的玩家可以跳过此检测
+  # 本模块中可用占位符: {player} 玩家名字, {command} 指令内容, {ip} 玩家ip地址
+  prevent_use_command:
+    # 是否启用
+    enable: false
+
+    message:
+      # 玩家使用禁用的指令时, 返回给玩家指定的消息, 支持颜色代码&, 留空以禁用
+      user: '&fUnknown command. Type "/help" for help.'
+      # 玩家使用禁用的指令时, 在控制台打印的日志内容, 支持颜色代码&, 留空以禁用
+      console: "&c{player}&f尝试使用指令&c{command}"
+      # 玩家使用禁用的指令时, 发送给op的消息, 支持颜色代码&, 留空以禁用
+      op: "&c{player}&f尝试使用指令&c{command}"
+
+    # 单独日志文件
+    log:
+      # 设置为true以启用文件记录
+      enable: false
+      # 日志时间戳格式 http://www.foxtable.com/webhelp/topics/0362.htm
+      datetime_format: "yyyy.MM.dd HH:mm:ss"
+      # log格式, 不支持颜色代码
+      log_format: "[{datetime}] {player}({ip}): {command}"
+      # log文件
+      file: "record.log"
+
+    # 阻止指令的规则, 不需要手动匹配指令前的/
+    # 使用正则表达式 https://www.runoob.com/regexp/regexp-tutorial.html
+    regexes:
+      - '(?i)(bukkit:)?(ver(sion)?|about|help|\?|pl(ugins)?(\s+.*)?)'
+
+  # 指令转接, 输入指令a以使用指令b(可以触发多条指令)
+  # 不需要手动处理指令前的/
+  # 转接执行的指令将不经过上面的阻止使用指令
+  transform_use_command:
+    # 是否启用
+    enable: false
+    # 指令列表
+    list:
+      - # 匹配指令的正则, 玩家使用 /tpyes 或者 /tpok 的时候触发
+        regex: '(?i)tp(yes|ok)(\s+.*)?'
+        # 匹配后执行的指令, 可以写多条指令
+        # 不需要在指令开头写/
+        trigger:
+          - "tpaccept"
+          - "say 我同意了你的tp"
+        # 使用此指令所需的权限
+        # 不写意为不需要权限
+        permission: "boom.transform.tpyes"
+      - # 另一条匹配规则 , 玩家使用 /tpno 的时候触发
+        regex: '(?i)tpno(\s+.*)?'
+        trigger:
+          - "tpdeny"
+          - "say 我拒绝了你的tp"
+      # 在下面按照格式添加你的匹配
+
+  # 控制实体生成
+  limit_entity_spawn:
+    # 格式 实体名字: 生成几率(几率 <= 0 时 不生成, >= 100不处理)
+    # bat: 0 意为阻止所有的蝙蝠生成(几率0%)
+    bat: 0
+    # zombified_piglin: 50 意为僵尸猪灵只有50%的几率生成(其他的生成会被取消)
+    zombified_piglin: 50
+
+# 单独世界设置
+# 可以自行扩展, 配置格式与global的一致
+# 缺失的内容将使用global的
+each:
+  # 将 示例的世界名字 替换成你的世界名字
+  示例的世界名字:
+    # 此处的配置项与global中的设置一样
+    explosion:
+      CREEPER:
+        enable: true
+        cancel: true
+    disable_fire_spread: true
+
