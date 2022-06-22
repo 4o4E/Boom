@@ -3,10 +3,13 @@ debug: false
 # 检查更新
 update: true
 
+# 默认配置: https://github.com/4o4E/Boom#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6
+# 如何配置: https://github.com/4o4E/Boom#%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE
+
 # 全局设置
 # 调用时先查找下方单独世界设置(each), 若未找到则使用全局设置
 global:
-  # 爆炸相关设置
+  # 实体爆炸相关设置
   # enable为false时不处理
   # cancel为false时爆炸不会破坏方块
   # cancel为true时爆炸将会被取消
@@ -32,7 +35,7 @@ global:
       # 设置为true直接取消爆炸
       cancel: false
 
-    # 凋灵出生
+    # 凋灵方块替换
     WITHER:
       # 是否启用, 设置为false则不处理
       # 设置为true则凋灵受到伤害时不替换3x3x3范围内的方块
@@ -60,10 +63,10 @@ global:
       cancel: false
 
   # 设置为true则不允许火焰蔓延
-  disable_fire_spread: false
+  disable_fire_spread: true
 
   # 设置为true则不允许火焰烧毁方块
-  disable_fire_burn: false
+  disable_fire_burn: true
 
   # 设置为true则实体无法踩坏耕地
   protect_farmland: true
@@ -81,10 +84,10 @@ global:
   prevent_zombie_to_drowned: false
 
   # 设置为true则阻止末影人搬起方块
-  prevent_enderman_pickup: true
+  prevent_enderman_pickup: false
 
   # 设置为true使盔甲架生成的时候摆正自己(使盔甲架默认有双手)
-  fix_armorstand_pose: false
+  fix_armorstand_pose: true
 
   # 死亡时保留物品
   # 设置为true则主动处理
@@ -166,6 +169,8 @@ global:
     # 指令列表
     list:
       - # 匹配指令的正则, 玩家使用 /tpyes 或者 /tpok 的时候触发
+        # 需要权限 boom.transform.tpyes (是由下面的permission配置项指定的)
+        # 在玩家没有权限时取消指令的执行并发送 noperm 的消息(若消息为空则不发送)
         regex: '(?i)tp(yes|ok)(\s+.*)?'
         # 匹配后执行的指令, 可以写多条指令
         # 不需要在指令开头写/
@@ -179,6 +184,7 @@ global:
         # 原指令依然会被取消
         noperm: "你没有权限"
       - # 另一条匹配规则 , 玩家使用 /tpno 的时候触发
+        # 不需要权限
         regex: '(?i)tpno(\s+.*)?'
         trigger:
           - "tpdeny"
@@ -186,12 +192,12 @@ global:
       # 在下面按照格式添加你的匹配
 
   # 控制实体生成
+  # 格式 实体名字: 生成几率(几率 <= 0 时不生成, >= 100不处理)
+  # 几率意为在原版生成的基础上修改, 不能在原版实体生成之外额外生成
+  # 不判断实体生成原因, 自然生成和刷怪蛋或者其他插件生成的怪物都受以下规则影响
   limit_entity_spawn:
-    # 格式 实体名字: 生成几率(几率 <= 0 时 不生成, >= 100不处理)
-    # bat: 0 意为阻止所有的蝙蝠生成(几率0%)
-    bat: 0
-    # zombified_piglin: 50 意为僵尸猪灵只有50%的几率生成(其他的生成会被取消)
-    zombified_piglin: 50
+    # bat: 0 # 意为阻止所有的蝙蝠生成(几率0%)
+    # zombified_piglin: 50 # 意为僵尸猪灵只有50%的几率生成(其他的生成会被取消)
 
 # 单独世界设置
 # 可以自行扩展, 配置格式与global的一致
