@@ -14,16 +14,24 @@ object Reload : ECommand(
     false,
     "boom.admin"
 ) {
-    override val usage = "&a/bm reload &f重载插件".color()
+    override val usage: String
+        get() = Lang["plugin_command.usage.reload"].color()
 
     override fun onCommand(sender: CommandSender, args: Array<out String>) {
         plugin.runTaskAsync {
             try {
                 Config.load(sender)
                 Lang.load(sender)
-                plugin.sendMsgWithPrefix(sender, "&a重载完成")
+                plugin.sendMsgWithPrefix(sender, Lang["plugin_command.reload_done"])
             } catch (t: Throwable) {
-                plugin.sendAndWarn(sender, "&c配置文件`config.yml`格式错误", t)
+                plugin.sendAndWarn(
+                    sender,
+                    Lang[
+                            "message.invalid_config",
+                            "file" to "config.yml"
+                    ],
+                    t
+                )
             }
         }
     }

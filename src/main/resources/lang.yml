@@ -12,6 +12,16 @@ message:
   non_player: "&c仅玩家可用"
   unknown_command: "&c未知指令"
   invalid_args: "&c无效参数"
+  invalid_world: "&c不存在名为{world}的世界"
+  invalid_duration: "&c时长{duration}格式错误"
+  invalid_config: "&c配置文件`{file}`格式错误"
+  backpack_full: "&c背包空间不足"
+
+time:
+  second: "秒"
+  minute: "分"
+  hour: "时"
+  day: "天"
 
 explosion:
   debug_pass: "未处理实体爆炸(entity: {entity}, world: {world}, x: {x}, y: {y}, z: {z})"
@@ -88,3 +98,33 @@ command:
   debug_console_use_transformed: "控制台使用转接指令(src: {command}, trigger: {trigger})"
 
 debug_on_death: "处理玩家死亡(保留经验: {lvl}, 保留背包: {inv}, player: {player}, world: {world}, x: {x}, y: {y}, z: {z})"
+
+weather:
+  set: "&a已设置世界{world}在接下来的{duration}内天气为{weather}"
+  rain: "雨"
+  sun: "晴"
+  thunder: "雷暴"
+
+plugin_command:
+  reload_done: "&a重载完成"
+  stick_give: "&a已给予"
+  usage:
+    reload: "&a/bm reload &f重载插件"
+    stick: "&a/bm stick &f获取调试棒(调试盔甲架和展示框)"
+    debug: "&a/bm debug &f切换debug消息的接受与否"
+    ls: "&a/bm ls &f切换当前世界天气在接下来的一小时内为晴"
+    rain: |-
+      &a/bm rain &f切换当前世界天气在接下来的10分钟内为雨
+      &a/bm rain <世界> &f切换指定世界天气在接下来的10分钟内为雨
+      &a/bm rain <世界> <时长> &f切换指定世界天气在接下来的指定时长内为雨
+        时长单位可用: 天/时/分/秒 支持英文缩写 示例: 1h30m
+    sun: |-
+      &a/bm sun &f切换当前世界天气在接下来的10分钟内为晴
+      &a/bm sun <世界> &f切换指定世界天气在接下来的10分钟内为晴
+      &a/bm sun <世界> <时长> &f切换指定世界天气在接下来的指定时长内为晴
+        时长单位可用: 天/时/分/秒 支持英文缩写 示例: 1h30m
+    thunder: |-
+      &a/bm thunder &f切换当前世界天气在接下来的10分钟内为雷暴
+      &a/bm thunder <世界> &f切换指定世界天气在接下来的10分钟内为雷暴
+      &a/bm thunder <世界> <时长> &f切换指定世界天气在接下来的指定时长内为雷暴
+        时长单位可用: 天/时/分/秒 支持英文缩写 示例: 1h30m
