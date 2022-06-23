@@ -131,7 +131,9 @@ In all other worlds, creeper explosions break blocks, fire spreads and burns blo
 
 # known issues
 
-- [ ] Armor Stand Debug Stick Sneak-clicking on an armor stand to modify its hitbox sometimes triggers twice in a row
+- [ ] Armor Stand Debug Stick Sneak-clicking on an armorstand to modify its hitbox sometimes triggers twice in a row
+
+  Solution: Sneak and click on the block close to the armorstand
 - [x] ~~Lightning protection for villagers will prevent villagers from becoming zombie villagers(killed by zombies is directly dead)~~ already fixed
 
 # update record
