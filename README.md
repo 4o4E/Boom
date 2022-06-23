@@ -1,5 +1,7 @@
 # Boom
 
+[English](README_EN.md)
+
 > 基于BukkitAPI的管理插件
 
 支持`Bukkit`/`Spigot`/`Paper`/`Purpur`等`Bukkit`的分支核心
