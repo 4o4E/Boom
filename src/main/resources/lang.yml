@@ -16,6 +16,7 @@ message:
   invalid_duration: "&c时长{duration}格式错误"
   invalid_config: "&c配置文件`{file}`格式错误"
   backpack_full: "&c背包空间不足"
+  invalid_regex: "跳过错误的正则: {regex}"
 
 time:
   second: "秒"
@@ -108,11 +109,13 @@ weather:
 plugin_command:
   reload_done: "&a重载完成"
   stick_give: "&a已给予"
+  world: "&a你当前所在的世界名为: &6{world}"
   usage:
     reload: "&a/bm reload &f重载插件"
     stick: "&a/bm stick &f获取调试棒(调试盔甲架和展示框)"
     debug: "&a/bm debug &f切换debug消息的接受与否"
     ls: "&a/bm ls &f切换当前世界天气在接下来的一小时内为晴"
+    world: "&a/bm world &f查看当前世界名"
     rain: |-
       &a/bm rain &f切换当前世界天气在接下来的10分钟内为雨
       &a/bm rain <世界> &f切换指定世界天气在接下来的10分钟内为雨

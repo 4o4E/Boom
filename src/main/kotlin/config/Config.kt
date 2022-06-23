@@ -26,6 +26,9 @@ object Config : EConfig(
     lateinit var each: Map<String, WorldConfig>
         private set
 
+    lateinit var stickName: String
+    lateinit var stickLore: List<String>
+
     fun <T> getEachOrGlobal(world: String, block: WorldConfig.() -> T?): T? {
         return each[world]?.block() ?: global.block()
     }
@@ -41,6 +44,8 @@ object Config : EConfig(
                     ?: return@mapNotNull null
                 world to worldConfig
             }?.toMap() ?: emptyMap()
+        stickName = getString("stick.name")?.color() ?: "stick.name"
+        stickLore = getStringList("stick.lore").map { it.color() }
     }
 
     // 扩展
@@ -135,7 +140,7 @@ object Config : EConfig(
                     try {
                         Regex(it)
                     } catch (e: Exception) {
-                        plugin.warn("跳过错误的正则: $it", e)
+                        plugin.warn(Lang["message.invalid_regex", "regex" to it], e)
                         null
                     }
                 }
