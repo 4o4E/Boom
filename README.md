@@ -1,6 +1,6 @@
 # Boom
 
-> 基于BukkitAPI的管理插件，适用于Spigot或Paper以及其他绝大多数Bukkit的下游分支核心
+> 基于BukkitAPI的管理插件
 
 支持`Bukkit`/`Spigot`/`Paper`/`Purpur`等`Bukkit`的分支核心
 
@@ -12,7 +12,7 @@
 
 **不支持`Sponge`核心**
 
-**不支持`Mohist`/`Arclight`/`CatServer`等任何的混合核心**(你可以用, 但是遇到问题请不要在这儿反馈)
+**不支持`Mohist`/`Arclight`/`CatServer`等任何的添加了mod支持的服务端核心，不支持MOD实体的处理**(你可以用, 但是遇到问题请不要在这儿反馈)
 
 [![Release](https://img.shields.io/github/v/release/4o4E/Boom?label=Release)](https://github.com/4o4E/Boom/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/4o4E/Boom/total?label=Download)](https://github.com/4o4E/Boom/releases)
@@ -33,7 +33,7 @@
 - 阻止使用床
 - 阻止使用重生锚
 - 阻止使用指令(指令转接的功能跳过此检测)
-- 指令转接，输入指令a以使用指令b(可以触发多条指令)(控制台转接指令)
+- 指令转接，输入指令a以使用指令b(可以触发多条指令)(支持控制台指令的转接)
 - 限制实体生成(百分比)
 
 # 配置文件
@@ -57,7 +57,7 @@ global:
       cancel: false
   disable_fire_spread: false
   disable_fire_burn: false
-  # 此处省略其他配置...  
+  # 此处省略其他配置...
 
 # each下的配置是单独世界的配置
 each:
@@ -81,11 +81,11 @@ each:
         cancel: false
     disable_fire_spread: true
     disable_fire_burn: true
-  # 此处省略其他配置...  
+  # 此处省略其他配置...
 
 ```
 
-按照以上配置后
+按照以上配置
 
 在世界`example_world1`中, 苦力怕的爆炸不会破坏方块
 
@@ -110,7 +110,7 @@ each:
 - `/bm thunder <世界>` 切换指定世界天气在接下来的10分钟内为雷暴
 - `/bm thunder <世界> <时长>` 切换指定世界天气在接下来的指定时长内为雷暴
 - `/bm ls` 切换当前世界天气在接下来的一小时内为晴
-- `/bm stick` 获取调试棒(调试盔甲架和展示框)
+- `/bm stick` 获取调试棒(用于修改盔甲架和展示框)
 
 # 权限
 
@@ -123,7 +123,7 @@ each:
   - `boom.weather.rain` 允许切换天气为雨
   - `boom.weather.thunder` 允许切换天气为雷暴
 
-- `boom.stick` 允许使用盔甲架/展示框调试棒
+- `boom.stick` 允许获取并使用调试棒修改盔甲架/展示框
 
 # 下载
 
