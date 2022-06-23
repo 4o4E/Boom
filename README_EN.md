@@ -2,7 +2,7 @@
 
 > Bukkit APi-based management plugin
 
-Support `Bukkit` branch core such as `Bukkit`/`Spigot`/`Paper`/`Purpur`
+Support `Bukkit` branch such as `Bukkit`/`Spigot`/`Paper`/`Purpur`
 
 Support `1.13.x`-`1.19.x`, `1.16.x`-`1.18.x` tested
 
@@ -101,14 +101,14 @@ In all other worlds, creeper explosions break blocks, fire spreads and burns blo
 - `/bm debug` Toggles acceptance of debug messages
 - `/bm world` View current world name
 - `/bm sun` Toggle current world weather to sunny for the next 10 minutes
-- `/bm sun <世界>` Toggles specifying that the world weather will be sunny for the next 10 minutes
-- `/bm sun <世界> <时长>` Toggles the specified world weather to be sunny for the next specified period of time
+- `/bm sun <world>` Toggles specifying that the world weather will be sunny for the next 10 minutes
+- `/bm sun <world> <duration>` Toggles the specified world weather to be sunny for the next specified period of time
 - `/bm rain` Toggle current world weather to rain for the next 10 minutes
-- `/bm rain <世界>` Toggles specifying world weather to be rain for the next 10 minutes
-- `/bm rain <世界> <时长>` Toggle the specified world weather to rain for the next specified duration
+- `/bm rain <world>` Toggles specifying world weather to be rain for the next 10 minutes
+- `/bm rain <world> <duration>` Toggle the specified world weather to rain for the next specified duration
 - `/bm thunder` Toggle current world weather to thunderstorms for the next 10 minutes
-- `/bm thunder <世界>` Toggles specifying world weather to be thunderstorms for the next 10 minutes
-- `/bm thunder <世界> <时长>` Toggles the specified world weather to be thunderstorms for the next specified duration
+- `/bm thunder <world>` Toggles specifying world weather to be thunderstorms for the next 10 minutes
+- `/bm thunder <world> <duration>` Toggles the specified world weather to be thunderstorms for the next specified duration
 - `/bm ls` Toggle current world weather to sunny for the next hour
 - `/bm stick` Get the debug stick(used to modify armor stands and display frames)
 
