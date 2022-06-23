@@ -12,7 +12,8 @@ object Debug : AbstractDebugCommand(
     PL,
     "boom.admin"
 ) {
-    override val usage = "&a/bm debug &f切换debug消息的接受与否".color()
+    override val usage: String
+        get() = Lang["plugin_command.usage.debug"].color()
 
     override fun onCommand(
         sender: CommandSender,
