@@ -12,13 +12,14 @@ object ExplosionListener : EListener(PL) {
     @EventHandler
     fun EntityExplodeEvent.onEvent() {
         val world = entity.world.name
+        println(Config.each)
         val map = Config.getEachOrGlobal(world) { explosion } ?: return
         val type = entity.type.name
         val config = map[type]
         val location = entity.location
         if (config == null || !config.enable) {
             plugin.debug(
-                "debug_pass",
+                "explosion.debug_pass",
                 "entity" to type,
                 "world" to world,
                 "x" to location.blockX,
@@ -30,7 +31,7 @@ object ExplosionListener : EListener(PL) {
         if (config.cancel) {
             isCancelled = true
             plugin.debug(
-                "debug_cancel",
+                "explosion.debug_cancel",
                 "entity" to type,
                 "world" to world,
                 "x" to location.blockX,
@@ -40,7 +41,7 @@ object ExplosionListener : EListener(PL) {
         } else {
             blockList().clear()
             plugin.debug(
-                "debug_prevent",
+                "explosion.debug_prevent",
                 "entity" to type,
                 "world" to world,
                 "x" to location.blockX,
