@@ -10,14 +10,18 @@ import top.e404.eplugin.EPlugin.Companion.color
 import top.e404.eplugin.EPlugin.Companion.formatAsConst
 import top.e404.eplugin.EPlugin.Companion.placeholder
 import top.e404.eplugin.config.EConfig
-import top.e404.eplugin.util.*
+import top.e404.eplugin.config.JarConfig
+import top.e404.eplugin.util.SoundConfig
+import top.e404.eplugin.util.forEachOp
+import top.e404.eplugin.util.getBooleanOrNull
+import top.e404.eplugin.util.getSoundConfig
 import java.text.SimpleDateFormat
 import java.util.*
 
 object Config : EConfig(
     plugin = PL,
     path = "config.yml",
-    default = Companion.JarConfig(PL, "config.yml")
+    default = JarConfig(PL, "config.yml")
 ) {
     var debug = false
     var update = true
@@ -37,13 +41,15 @@ object Config : EConfig(
         debug = getBoolean("debug")
         update = getBoolean("update", true)
         global = getWorldConfig("global")!!
-        each = getConfigurationSection("each")
-            ?.getKeys(false)
+        val eachCfg = getConfigurationSection("each")
+        each = eachCfg?.getKeys(false)
             ?.mapNotNull { world ->
-                val worldConfig = getWorldConfig(world)
+                val worldConfig = eachCfg.getWorldConfig(world)
                     ?: return@mapNotNull null
                 world to worldConfig
-            }?.toMap() ?: emptyMap()
+            }
+            ?.toMap()
+            ?: emptyMap()
         stickName = getString("stick.name")?.color() ?: "stick.name"
         stickLore = getStringList("stick.lore").map { it.color() }
     }
