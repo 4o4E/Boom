@@ -12,7 +12,6 @@ object ExplosionListener : EListener(PL) {
     @EventHandler
     fun EntityExplodeEvent.onEvent() {
         val world = entity.world.name
-        println(Config.each)
         val map = Config.getEachOrGlobal(world) { explosion } ?: return
         val type = entity.type.name
         val config = map[type]
