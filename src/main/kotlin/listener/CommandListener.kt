@@ -22,12 +22,13 @@ object CommandListener : EListener(PL) {
             val remove = commands.filter { command ->
                 cfg.regexes.any { regex -> regex.matches(command) }
             }
+            remove.forEach { commands.remove(it) }
             plugin.debug(
                 "command.debug_remove_complete",
                 "player" to player.name,
                 "remove" to remove,
+                "commands" to commands
             )
-            remove.forEach { commands.remove(it) }
         } else plugin.debug(
             "command.debug_not_remove_complete",
             "player" to player.name,

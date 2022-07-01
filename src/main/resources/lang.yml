@@ -91,7 +91,7 @@ item_frame:
   unset_visible: "&f已设置展示框&c不可见&f ,再次点击切换"
 
 command:
-  debug_remove_complete: "从玩家指令补全中移除指令(player: {player}, remove: {remove})"
+  debug_remove_complete: "从玩家指令补全中移除指令(player: {player}, remove: {remove}, commands: {commands})"
   debug_not_remove_complete: "未处理玩家指令补全(player: {player})"
   debug_player_use_disabled: "玩家使用禁用指令(player: {player}, command: {command})"
   debug_player_use_transformed: "玩家使用转接指令(player: {player}, src: {command}, trigger: {trigger})"
