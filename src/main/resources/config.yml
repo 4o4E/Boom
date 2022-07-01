@@ -159,6 +159,7 @@ global:
     # 使用正则表达式 https://www.runoob.com/regexp/regexp-tutorial.html
     regexes:
       - '(?i)(bukkit:)?(ver(sion)?|about|help|\?|pl(ugins)?(\s+.*)?)'
+      - 'icanhasbukkit(\s+.*)?'
 
   # 指令转接, 输入指令a以使用指令b(可以触发多条指令)
   # 不需要手动处理指令前的/
