@@ -11,10 +11,7 @@ import top.e404.eplugin.EPlugin.Companion.formatAsConst
 import top.e404.eplugin.EPlugin.Companion.placeholder
 import top.e404.eplugin.config.EConfig
 import top.e404.eplugin.config.JarConfig
-import top.e404.eplugin.util.SoundConfig
-import top.e404.eplugin.util.forEachOp
-import top.e404.eplugin.util.getBooleanOrNull
-import top.e404.eplugin.util.getSoundConfig
+import top.e404.eplugin.util.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -102,7 +99,7 @@ object Config : EConfig(
                 preventUseCommand = cfg.getPreventUseCommand("prevent_use_command"),
                 transformUseCommand = cfg.getTransformUseCommand("transform_use_command"),
                 limitEntitySpawn = cfg.getConfigurationSection("limit_entity_spawn")?.let { limit ->
-                    limit.getKeys(false).associate { key -> key.formatAsConst() to getInt(key) }
+                    limit.getKeys(false).associate { key -> key.formatAsConst() to (limit.getIntOrNull(key) ?: 100) }
                 }
             )
 
