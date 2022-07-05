@@ -71,6 +71,8 @@ object Config : EConfig(
         val preventUseCommand: PreventUseCommand?,
         val transformUseCommand: TransformUseCommandConfig?,
         val limitEntitySpawn: Map<String, Int>?,
+        val preventClickBlock: List<ClickBlockConfig>,
+        val preventClickEntity: List<ClickEntityConfig>,
     )
 
     fun ConfigurationSection.getWorldConfig(path: String) =
@@ -100,9 +102,14 @@ object Config : EConfig(
                 transformUseCommand = cfg.getTransformUseCommand("transform_use_command"),
                 limitEntitySpawn = cfg.getConfigurationSection("limit_entity_spawn")?.let { limit ->
                     limit.getKeys(false).associate { key -> key.formatAsConst() to (limit.getIntOrNull(key) ?: 100) }
-                }
+                },
+                preventClickBlock = cfg.getMapList("prevent_click_block").mapNotNull { map ->
+                    map.asClickBlockConfig()
+                },
+                preventClickEntity = cfg.getMapList("prevent_click_entity").mapNotNull { map ->
+                    map.asClickEntityConfig()
+                },
             )
-
         }
 
     fun ConfigurationSection.getExplosionConfig(path: String) =
@@ -252,5 +259,44 @@ object Config : EConfig(
                 fun match(command: String) = regex.matches(command)
             }
         }
+    }
+
+
+    fun Map<*, *>.asClickBlockConfig(): ClickBlockConfig? {
+        val item = this["item"]?.toString()?.toRegex() ?: return null
+        val block = this["block"]?.toString()?.toRegex() ?: return null
+        val type = this["type"]?.toString()?.asClickType() ?: return null
+        return ClickBlockConfig(item, block, type)
+    }
+
+    data class ClickBlockConfig(
+        val item: Regex,
+        val block: Regex,
+        val type: ClickType
+    )
+
+    fun Map<*, *>.asClickEntityConfig(): ClickEntityConfig? {
+        val item = this["item"]?.toString()?.toRegex() ?: return null
+        val entity = this["entity"]?.toString()?.toRegex() ?: return null
+        val type = this["type"]?.toString()?.asClickType() ?: return null
+        return ClickEntityConfig(item, entity, type)
+    }
+
+    data class ClickEntityConfig(
+        val item: Regex,
+        val entity: Regex,
+        val type: ClickType
+    )
+
+    fun String.asClickType() = ClickType.values().firstOrNull { it.regex.matches(this) }
+
+    enum class ClickType(
+        regex: String
+    ) {
+        LEFT("(?i)l|left"),
+        RIGHT("(?i)r|right"),
+        ALL("(?i)a|all");
+
+        val regex = Regex(regex)
     }
 }

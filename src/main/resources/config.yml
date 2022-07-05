@@ -200,6 +200,30 @@ global:
     # bat: 0 # 意为阻止所有的蝙蝠生成(几率0%)
     # zombified_piglin: 50 # 意为僵尸猪灵只有50%的几率生成(其他的生成会被取消)
 
+  # 阻止玩家使用物品点击方块
+  # 空手时item为AIR
+  prevent_click_block:
+    # 以下这条配置的效果是阻止玩家使用刷怪蛋点击刷怪笼
+#    - # 玩家点击方块时的物品类型匹配正则
+#      item: "(?i)[a-z]+_spawn_egg"
+#      # 玩家点击的方块类型匹配正则
+#      block: "(?i)spawner"
+#      # 点击的类型 (left/right/all)
+#      # left对应挖掘, right对应点击
+#      type: right
+
+  # 阻止玩家使用物品点击实体
+  # 空手时item为AIR
+  prevent_click_entity:
+    # 以下这条配置的效果是阻止玩家使用胡萝卜点击猪
+#    - # 玩家点击方块时的物品类型匹配正则
+#      item: "(?i)carrot"
+#      # 玩家点击的方块类型匹配正则
+#      entity: "(?i)pig"
+#      # 点击的类型 (left/right/all)
+#      # left对应伤害, right对应点击
+#      type: right
+
 # 单独世界设置
 # 可以自行扩展, 配置格式与global的一致
 # 缺失的内容将使用global的

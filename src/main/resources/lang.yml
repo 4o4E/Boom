@@ -106,6 +106,10 @@ weather:
   sun: "晴"
   thunder: "雷暴"
 
+click:
+  prevent: "阻止玩家{player}手持{item}点击{target}(world: {world}, x: {x}, y: {y}, z: {z})"
+  pass: "未处理玩家{player}手持{item}点击{target}(world: {world}, x: {x}, y: {y}, z: {z})"
+
 plugin_command:
   reload_done: "&a重载完成"
   stick_give: "&a已给予"

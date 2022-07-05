@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "top.e404"
-version = "2.0.4"
+version = "2.0.5"
 
 repositories {
     maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
@@ -20,7 +20,7 @@ dependencies {
     // spigot
     compileOnly("org.spigotmc:spigot-api:1.16.5-R0.1-SNAPSHOT")
     // eplugin
-    implementation("top.e404:eplugin:1.0.1")
+    implementation("top.e404:eplugin:1.0.2")
 }
 
 tasks {
