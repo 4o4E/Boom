@@ -176,4 +176,4 @@ each:
 
 # bstats
 
-![bstats](https://bstats.org/signatures/bukkit/Boom.svg)
+[![bstats](https://bstats.org/signatures/bukkit/Boom.svg)](https://bstats.org/plugin/bukkit/Boom/11445)
