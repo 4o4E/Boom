@@ -211,9 +211,9 @@ object ClickListener : EListener(PL) {
                             "item" to item,
                             "target" to entity.type.name,
                             "world" to remover.world.name,
-                            "x" to l.x,
-                            "y" to l.y,
-                            "z" to l.z,
+                            "x" to l.blockX,
+                            "y" to l.blockY,
+                            "z" to l.blockZ,
                     ]
                 }
                 return
@@ -227,9 +227,9 @@ object ClickListener : EListener(PL) {
                         "item" to item,
                         "target" to entity.type.name,
                         "world" to remover.world.name,
-                        "x" to l.x,
-                        "y" to l.y,
-                        "z" to l.z,
+                        "x" to l.blockX,
+                        "y" to l.blockY,
+                        "z" to l.blockZ,
                 ]
             }
             return
@@ -242,9 +242,9 @@ object ClickListener : EListener(PL) {
                     "item" to item,
                     "target" to entity.type.name,
                     "world" to remover.world.name,
-                    "x" to l.x,
-                    "y" to l.y,
-                    "z" to l.z,
+                    "x" to l.blockX,
+                    "y" to l.blockY,
+                    "z" to l.blockZ,
             ]
         }
     }
@@ -271,9 +271,9 @@ object ClickListener : EListener(PL) {
                             "item" to item,
                             "target" to entity.type.name,
                             "world" to damager.world.name,
-                            "x" to l.x,
-                            "y" to l.y,
-                            "z" to l.z,
+                            "x" to l.blockX,
+                            "y" to l.blockY,
+                            "z" to l.blockZ,
                     ]
                 }
                 return
