@@ -35,3 +35,11 @@ permissions:
   boom.stick:
     default: op
     description: 允许使用盔甲架调试棒
+  boom.bypass.*:
+    default: false
+
+    children:
+      boom.bypass.block:
+        default: false
+      boom.bypass.entity:
+        default: false

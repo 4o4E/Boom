@@ -202,6 +202,11 @@ global:
 
   # 阻止玩家使用物品点击方块
   # 空手时item为AIR
+  # 可用物品|方块类型: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html
+
+  # 匹配正则示例(方块): "IRON_ORE|DIAMOND_ORE"
+  # 反向匹配正则示例(方块)(除了其中写到的其他都匹配): "(?!(IRON_ORE|DIAMOND_ORE)$).+"
+  # 匹配全部示例(匹配所有): ".*"
   prevent_click_block:
     # 以下这条配置的效果是阻止玩家使用刷怪蛋点击刷怪笼
 #    - # 玩家点击方块时的物品类型匹配正则
@@ -214,6 +219,13 @@ global:
 
   # 阻止玩家使用物品点击实体
   # 空手时item为AIR
+  # 展示框等也算是实体
+  # 可用实体类型: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html
+  # 可用物品类型: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html
+
+  # 匹配正则示例(实体): "SPIDER|ZOMBIE"
+  # 反向匹配正则示例(实体)(除了其中写到的其他都匹配): "(?!(SPIDER|ZOMBIE)$).+"
+  # 匹配全部示例(匹配所有): ".*"
   prevent_click_entity:
     # 以下这条配置的效果是阻止玩家使用胡萝卜点击猪
 #    - # 玩家点击方块时的物品类型匹配正则
