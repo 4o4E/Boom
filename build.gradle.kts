@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "top.e404"
-version = "2.0.6"
+version = "2.0.7"
 
 repositories {
     maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
