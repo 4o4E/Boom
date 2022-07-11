@@ -99,6 +99,9 @@ global:
   # 否则不处理, 由其他插件或原版处理
   keep_level_on_death: false
 
+  # 阻止玩家收到伤害
+  prevent_player_damage: false
+
   # 阻止使用床
   prevent_use_bed:
     # 是否启用

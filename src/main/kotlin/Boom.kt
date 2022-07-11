@@ -44,6 +44,7 @@ class Boom : EPlugin() {
         StickListener.register()
         DeathListener.register()
         ClickListener.register()
+        DamageListener.register()
         Update.init()
         for (line in logo) info(line)
         info("&a加载完成, 作者404E, 感谢使用")
