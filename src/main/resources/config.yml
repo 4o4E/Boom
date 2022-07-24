@@ -7,7 +7,7 @@ update: true
 # 如何配置: https://github.com/4o4E/Boom#%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE
 
 # 全局设置
-# 调用时先查找下方单独世界设置(each), 若未找到则使用全局设置
+# 触发时配置顺序: 区域设置(region) -> 世界设置(each) -> 全局设置(global)
 global:
   # 实体爆炸相关设置
   # enable为false时不处理
@@ -239,7 +239,7 @@ global:
 #      # left对应伤害, right对应点击
 #      type: right
 
-# 单独世界设置
+# 世界设置
 # 可以自行扩展, 配置格式与global的一致
 # 缺失的内容将使用global的
 each:
@@ -251,6 +251,20 @@ each:
         enable: true
         cancel: true
     disable_fire_spread: true
+
+# 区域设置
+# 可以自行扩展, 配置格式与global的一致
+# 缺失的内容将使用global的
+region:
+  # 将 示例的世界名字 替换成你的世界名字
+  示例的区域名字:
+    # 此处的配置项与global中的设置一样
+    explosion:
+      CREEPER:
+        enable: true
+        cancel: true
+    disable_fire_spread: true
+
 
 # 盔甲架/展示框调试棒的物品设置
 stick:

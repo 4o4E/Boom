@@ -15,7 +15,7 @@ object DamageListener : EListener(PL) {
         if (entity !is Player) return
         val world = entity.world.name
         val location = entity.location
-        if (Config.getEachOrGlobal(world) { preventPlayerDamage } == true) {
+        if (Config.getConfig(location) { preventPlayerDamage } == true) {
             isCancelled = true
             plugin.debug(
                 "player_damage.prevent",

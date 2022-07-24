@@ -2,25 +2,29 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.7.0"
+    kotlin("plugin.serialization") version "1.7.0"
     id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
 group = "top.e404"
-version = "2.0.8"
+version = "2.0.9"
+val ePluginVersion = "1.0.3"
 
 repositories {
     maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
     maven("https://oss.sonatype.org/content/groups/public/")
-    maven("https://repo.codemc.org/repository/maven-public/")
-    mavenCentral()
     mavenLocal()
+    mavenCentral()
 }
 
 dependencies {
     // spigot
     compileOnly("org.spigotmc:spigot-api:1.16.5-R0.1-SNAPSHOT")
     // eplugin
-    implementation("top.e404:eplugin:1.0.2")
+    implementation("top.e404:eplugin:${ePluginVersion}")
+    implementation("top.e404:eplugin-serialization:${ePluginVersion}")
+    implementation("top.e404:eplugin-serialization-worldguard:${ePluginVersion}")
+    implementation("top.e404:eplugin-hook-worldguard:${ePluginVersion}")
 }
 
 tasks {

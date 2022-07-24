@@ -3,6 +3,8 @@ version: "${version}"
 main: top.e404.boom.Boom
 api-version: 1.13
 authors: [ 404E ]
+softdepend:
+  - WorldGuard
 commands:
   boom:
     description: 插件主命令

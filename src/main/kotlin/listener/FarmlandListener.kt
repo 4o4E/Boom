@@ -18,7 +18,7 @@ object FarmlandListener : EListener(PL) {
         ) return
         val world = player.world.name
         val location = block.location
-        if (Config.getEachOrGlobal(player.world.name) { protectFarmland } == true) {
+        if (Config.getConfig(location) { protectFarmland } == true) {
             isCancelled = true
             plugin.debug(
                 "farmland.debug_protect_by_player",
@@ -43,7 +43,7 @@ object FarmlandListener : EListener(PL) {
         val world = entity.world.name
         val location = block.location
         if (block.type != Material.FARMLAND) return
-        if (Config.getEachOrGlobal(entity.world.name) { protectFarmland } == true) {
+        if (Config.getConfig(location) { protectFarmland } == true) {
             isCancelled = true
             plugin.debug(
                 "farmland.debug_protect_by_entity",

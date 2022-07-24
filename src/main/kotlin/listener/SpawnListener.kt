@@ -14,9 +14,7 @@ object SpawnListener : EListener(PL) {
         val entity = entity
         val world = entity.world.name
         val type = entity.type.name
-        val chance = Config.each[world]?.limitEntitySpawn?.get(type)
-            ?: Config.global.limitEntitySpawn?.get(type)
-            ?: return
+        val chance = Config.getConfig(entity.location) { limitEntitySpawn?.get(type) } ?: return
         if (chance >= 100) return
         if (chance <= 0 || Random.nextInt(101) > chance) {
             isCancelled = true

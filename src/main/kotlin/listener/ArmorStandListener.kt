@@ -16,7 +16,7 @@ object ArmorStandListener : EListener(PL) {
         if (entity !is ArmorStand) return
         val world = entity.world.name
         val location = entity.location
-        if (Config.getEachOrGlobal(world) { fixArmorstandPose } != true) {
+        if (Config.getConfig(location) { fixArmorstandPose } != true) {
             plugin.debug(
                 "armorstand.debug_fix",
                 "world" to world,

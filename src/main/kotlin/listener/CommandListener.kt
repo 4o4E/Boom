@@ -15,7 +15,7 @@ object CommandListener : EListener(PL) {
     @EventHandler
     fun PlayerCommandSendEvent.onEvent() {
         if (player.hasPermission("boom.bypass.command")) return
-        val cfg = Config.getEachOrGlobal(player.world.name) { preventUseCommand }
+        val cfg = Config.getConfig(player.location) { preventUseCommand }
         if (cfg != null
             && cfg.enable
         ) {
@@ -41,7 +41,7 @@ object CommandListener : EListener(PL) {
         val command = message.substring(1) // 去除开头/
         // 检测禁用指令
         if (!player.hasPermission("boom.bypass.command")) {
-            val preventCfg = Config.getEachOrGlobal(player.world.name) { preventUseCommand }
+            val preventCfg = Config.getConfig(player.location) { preventUseCommand }
             if (preventCfg != null
                 && preventCfg.enable
                 && preventCfg.regexes.any { regex -> regex.matches(command) }
@@ -58,7 +58,7 @@ object CommandListener : EListener(PL) {
             }
         }
         // 检测指令转接
-        val transformCfg = Config.getEachOrGlobal(player.world.name) { transformUseCommand }
+        val transformCfg = Config.getConfig(player.location) { transformUseCommand }
         if (transformCfg != null
             && transformCfg.enable
         ) {
@@ -92,7 +92,7 @@ object CommandListener : EListener(PL) {
     @EventHandler
     fun ServerCommandEvent.onEvent() {
         // 检测指令转接
-        val (enable, list) = Config.global.transformUseCommand ?: return
+        val (enable, list) = Config.config.global.transformUseCommand ?: return
         if (enable) for (trigger in list) if (trigger.match(command)) {
             plugin.debug(
                 "command.debug_console_use_transformed",

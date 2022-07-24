@@ -7,6 +7,10 @@ debug:
   player_enable: "&f已&a启用&bDebug&f, 你将会收到&bDebug&f消息, 再使用一次此指令以&c禁用"
   player_disable: "&f已&c禁用&bDebug&f, 你不会收到&bDebug&f消息, 再使用一次此指令以&a启用"
 
+hook:
+  enable: "扫描到依赖{plugin}, 已启用相关支持"
+  disable: "未扫描到依赖{plugin}, 已禁用"
+
 message:
   noperm: "&c无权限"
   non_player: "&c仅玩家可用"

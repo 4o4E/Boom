@@ -9,6 +9,7 @@ import org.bukkit.event.hanging.HangingBreakByEntityEvent
 import org.bukkit.event.player.PlayerInteractEntityEvent
 import org.bukkit.event.player.PlayerInteractEvent
 import top.e404.boom.PL
+import top.e404.boom.config.ClickType
 import top.e404.boom.config.Config
 import top.e404.boom.config.Lang
 import top.e404.eplugin.listener.EListener
@@ -18,13 +19,13 @@ object ClickListener : EListener(PL) {
     fun PlayerInteractEvent.onEvent() {
         val block = clickedBlock ?: return
         val hand = hand ?: return
-        val cfg = Config.getEachOrGlobal(player.world.name) { preventClickBlock } ?: return
+        val cfg = Config.getConfig(player.location) { preventClickBlock } ?: return
         val item = player.inventory.getItem(hand).type.name
         for ((itemRegex, blockRegex, type) in cfg) {
             // 检测破坏 && 动作不是破坏
-            if (type == Config.ClickType.LEFT && action != Action.LEFT_CLICK_BLOCK) continue
+            if (type == ClickType.LEFT && action != Action.LEFT_CLICK_BLOCK) continue
             // 检测点击 && 动作不是点击
-            if (type == Config.ClickType.RIGHT && action != Action.RIGHT_CLICK_BLOCK) continue
+            if (type == ClickType.RIGHT && action != Action.RIGHT_CLICK_BLOCK) continue
             // 物品或方块不匹配
             if (!blockRegex.matches(block.type.name)
                 || !itemRegex.matches(item)
@@ -76,11 +77,11 @@ object ClickListener : EListener(PL) {
     @EventHandler
     fun BlockBreakEvent.onEvent() {
         val block = block
-        val cfg = Config.getEachOrGlobal(player.world.name) { preventClickBlock } ?: return
+        val cfg = Config.getConfig(player.location) { preventClickBlock } ?: return
         val item = player.inventory.itemInMainHand.type.name
         for ((itemRegex, blockRegex, type) in cfg) {
             // 忽略交互检测
-            if (type == Config.ClickType.RIGHT) continue
+            if (type == ClickType.RIGHT) continue
             // 物品或方块不匹配
             if (!blockRegex.matches(block.type.name)
                 || !itemRegex.matches(item)
@@ -131,12 +132,12 @@ object ClickListener : EListener(PL) {
 
     @EventHandler
     fun PlayerInteractEntityEvent.onEvent() {
-        val cfg = Config.getEachOrGlobal(player.world.name) { preventClickEntity } ?: return
+        val cfg = Config.getConfig(player.location) { preventClickEntity } ?: return
         val item = player.inventory.getItem(hand).type.name
         val entity = rightClicked.type.name
         for ((itemRegex, entityRegex, type) in cfg) {
             // 忽略left, 检测right/all
-            if (type == Config.ClickType.LEFT) continue
+            if (type == ClickType.LEFT) continue
             // 物品或方块不匹配
             if (!entityRegex.matches(entity)
                 || !itemRegex.matches(item)
@@ -193,11 +194,11 @@ object ClickListener : EListener(PL) {
         val remover = remover
         if (remover !is Player) return
         val entity = entity
-        val cfg = Config.getEachOrGlobal(remover.world.name) { preventClickEntity } ?: return
+        val cfg = Config.getConfig(remover.location) { preventClickEntity } ?: return
         val item = remover.inventory.itemInMainHand.type.name
         for ((itemRegex, entityRegex, type) in cfg) {
             // 忽略交互检测
-            if (type == Config.ClickType.RIGHT) continue
+            if (type == ClickType.RIGHT) continue
             // 物品或实体不匹配
             if (!entityRegex.matches(entity.type.name)
                 || !itemRegex.matches(item)
@@ -253,11 +254,11 @@ object ClickListener : EListener(PL) {
     fun EntityDamageByEntityEvent.onEvent() {
         val damager = damager
         if (damager !is Player) return
-        val cfg = Config.getEachOrGlobal(damager.world.name) { preventClickEntity } ?: return
+        val cfg = Config.getConfig(damager.location) { preventClickEntity } ?: return
         val item = damager.inventory.itemInMainHand.type.name
         for ((itemRegex, entityRegex, type) in cfg) {
             // 忽略right, 检测left/all
-            if (type == Config.ClickType.RIGHT) continue
+            if (type == ClickType.RIGHT) continue
             // 物品或方块不匹配
             if (!entityRegex.matches(entityType.name)
                 || !itemRegex.matches(item)

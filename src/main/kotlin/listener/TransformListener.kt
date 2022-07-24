@@ -17,7 +17,7 @@ object TransformListener : EListener(PL) {
         if (from == EntityType.VILLAGER) {
             // 村民 -> 女巫
             if (to == EntityType.WITCH) {
-                if (Config.getEachOrGlobal(world) { protectVillagerToWitch } == true) {
+                if (Config.getConfig(location) { protectVillagerToWitch } == true) {
                     isCancelled = true
                     plugin.debug(
                         "transform.prevent_villager_to_witch",
@@ -37,7 +37,7 @@ object TransformListener : EListener(PL) {
             }
             // 村民 -> 僵尸村民
             if (to == EntityType.ZOMBIE_VILLAGER) {
-                if (Config.getEachOrGlobal(world) { protectVillagerToZombie } == true) {
+                if (Config.getConfig(location) { protectVillagerToZombie } == true) {
                     isCancelled = true
                     plugin.debug(
                         "transform.prevent_villager_to_zombie_villager",
@@ -61,7 +61,7 @@ object TransformListener : EListener(PL) {
         if (from == EntityType.ZOMBIE_VILLAGER
             && to == EntityType.VILLAGER
         ) {
-            if (Config.getEachOrGlobal(world) { protectZombieVillagerToVillager } == true) {
+            if (Config.getConfig(location) { protectZombieVillagerToVillager } == true) {
                 isCancelled = true
                 plugin.debug(
                     "transform.prevent_zombie_villager_to_villager",
@@ -82,7 +82,7 @@ object TransformListener : EListener(PL) {
         if (from == EntityType.ZOMBIE
             && to == EntityType.DROWNED
         ) {
-            if (Config.getEachOrGlobal(world) { protectZombieToDrowned } == true) {
+            if (Config.getConfig(location) { protectZombieToDrowned } == true) {
                 isCancelled = true
                 plugin.debug(
                     "transform.prevent_zombie_to_drowned",

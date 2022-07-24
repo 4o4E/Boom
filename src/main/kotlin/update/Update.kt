@@ -10,5 +10,5 @@ object Update : EUpdater(
     mcbbs = "https://www.mcbbs.net/thread-1150139-1-1.html",
     github = "https://github.com/4o4E/Boom"
 ) {
-    override fun enableUpdate() = Config.update
+    override fun enableUpdate() = Config.config.update
 }

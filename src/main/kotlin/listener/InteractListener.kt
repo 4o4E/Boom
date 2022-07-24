@@ -24,7 +24,7 @@ object InteractListener : EListener(PL) {
         val location = block.location
         // 床
         if (type.endsWith("_BED") || type == "BED") {
-            val cfg = Config.getEachOrGlobal(world) { preventUseBed }
+            val cfg = Config.getConfig(location) { preventUseBed }
             if (cfg != null && cfg.enable) {
                 plugin.debug(
                     "bed.prevent_use",
@@ -49,7 +49,7 @@ object InteractListener : EListener(PL) {
         }
         // 重生锚
         if (type == "RESPAWN_ANCHOR") {
-            val cfg = Config.getEachOrGlobal(world) { preventUseRespawnAnchor }
+            val cfg = Config.getConfig(location) { preventUseRespawnAnchor }
             if (cfg != null
                 && cfg.enable
                 && ("respawn_anchor[charges=4]" in block.blockData.asString

@@ -3,6 +3,7 @@ package top.e404.boom
 import top.e404.boom.command.CommandManager
 import top.e404.boom.config.Config
 import top.e404.boom.config.Lang
+import top.e404.boom.hook.HookManager
 import top.e404.boom.listener.*
 import top.e404.boom.update.Update
 import top.e404.eplugin.EPlugin
@@ -46,6 +47,7 @@ class Boom : EPlugin() {
         ClickListener.register()
         DamageListener.register()
         Update.init()
+        HookManager.register()
         for (line in logo) info(line)
         info("&a加载完成, 作者404E, 感谢使用")
     }

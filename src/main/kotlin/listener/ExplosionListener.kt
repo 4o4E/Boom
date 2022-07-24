@@ -12,10 +12,10 @@ object ExplosionListener : EListener(PL) {
     @EventHandler
     fun EntityExplodeEvent.onEvent() {
         val world = entity.world.name
-        val map = Config.getEachOrGlobal(world) { explosion } ?: return
+        val location = entity.location
+        val map = Config.getConfig(location) { explosion } ?: return
         val type = entity.type.name
         val config = map[type]
-        val location = entity.location
         if (config == null || !config.enable) {
             plugin.debug(
                 "explosion.debug_pass",
@@ -56,7 +56,7 @@ object ExplosionListener : EListener(PL) {
         val location = entity.location
         // 凋灵受伤害时替换方块
         if (entityType == EntityType.WITHER) {
-            val map = Config.getEachOrGlobal(world) { explosion } ?: return
+            val map = Config.getConfig(location) { explosion } ?: return
             val config = map["WITHER"] ?: return
             if (config.enable) {
                 isCancelled = true
@@ -78,7 +78,7 @@ object ExplosionListener : EListener(PL) {
         }
         // 末影人搬起方块
         if (entityType == EntityType.ENDERMAN) {
-            if (Config.getEachOrGlobal(world) { preventEndermanPickup } == true) {
+            if (Config.getConfig(location) { preventEndermanPickup } == true) {
                 isCancelled = true
                 plugin.debug(
                     "enderman.debug_prevent_pickup",

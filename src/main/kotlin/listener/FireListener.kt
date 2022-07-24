@@ -13,7 +13,7 @@ object FireListener : EListener(PL) {
     fun BlockBurnEvent.onEvent() {
         val world = block.world.name
         val location = block.location
-        if (Config.getEachOrGlobal(block.world.name) { disableFireBurn } == true) {
+        if (Config.getConfig(location) { disableFireBurn } == true) {
             isCancelled = true
             plugin.debug(
                 "fire.debug_prevent_spread",
@@ -36,7 +36,7 @@ object FireListener : EListener(PL) {
     fun BlockIgniteEvent.onEvent() {
         val world = block.world.name
         val location = block.location
-        if (Config.getEachOrGlobal(block.world.name) { disableFireSpread } == true
+        if (Config.getConfig(location) { disableFireSpread } == true
             && cause == BlockIgniteEvent.IgniteCause.SPREAD
         ) {
             isCancelled = true

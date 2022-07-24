@@ -9,8 +9,8 @@ import top.e404.eplugin.listener.EListener
 object DeathListener : EListener(PL) {
     @EventHandler
     fun PlayerDeathEvent.onEvent() {
-        val lvl = Config.getEachOrGlobal(entity.world.name) { keepLevelOnDeath } == true
-        val inv = Config.getEachOrGlobal(entity.world.name) { keepInventoryOnDeath } == true
+        val lvl = Config.getConfig(entity.location) { keepLevelOnDeath } == true
+        val inv = Config.getConfig(entity.location) { keepInventoryOnDeath } == true
         if (lvl) {
             droppedExp = 0
             keepLevel = true
