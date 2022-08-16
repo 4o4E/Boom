@@ -19,7 +19,7 @@
 [![Release](https://img.shields.io/github/v/release/4o4E/Boom?label=Release)](https://github.com/4o4E/Boom/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/4o4E/Boom/total?label=Download)](https://github.com/4o4E/Boom/releases)
 
-# 支持功能
+## 支持功能
 
 以下所有配置均可以按世界/WorldGuard区域单独配置(在`global`下的是全局设置，在`each.<世界名>`下的是单独世界的设置，`region.<区域名>`下的是区域设置，处理优先级：区域(`region`) -> 世界(`each`) -> 全局(`global`))
 
@@ -39,17 +39,17 @@
 - 限制实体生成(百分比)
 - 阻止玩家点击实体/方块
 
-# 配置文件
+## 配置文件
 
 [config.yml](src/main/resources/config.yml)
 
-# 语言文件
+## 语言文件
 
 [lang.yml](src/main/resources/lang.yml)
 
 欢迎pr其他的语言文件
 
-# 如何配置
+## 如何配置
 
 ```yaml
 # global下的配置是全局配置
@@ -96,7 +96,7 @@ each:
 
 其他所有世界中则苦力怕的爆炸会破坏方块, 火焰会蔓延和烧坏方块
 
-# 指令
+## 指令
 
 > 插件主命令为`boom`，包括别名`bm`，如果与其他插件指令冲突，请使用`boom`
 
@@ -115,7 +115,7 @@ each:
 - `/bm ls` 切换当前世界天气在接下来的一小时内为晴
 - `/bm stick` 获取调试棒(用于修改盔甲架和展示框)
 
-# 权限
+## 权限
 
 - `boom.admin` 允许使用插件指令
 - `boom.bypass.command` 允许跳过指令过滤
@@ -133,18 +133,18 @@ each:
   - `boom.bypass.block` 允许跳过点击方块的限制
   - `boom.bypass.entity` 允许跳过点击实体的限制
 
-# 下载
+## 下载
 
 - [最新版](https://github.com/4o4E/Boom/releases/latest)
 
-# 已知问题
+## 已知问题
 
 - [ ] 盔甲架调试棒潜行点击盔甲架修改其碰撞箱时有时会连续触发两次
 
   解决方法: 潜行点击距离盔甲架相近的方块
 - [x] ~~村民防雷击会阻止村民变成僵尸村民(被僵尸打死就是直接死了)~~ 已修复
 
-# 更新记录
+## 更新记录
 
 ```log
 2021.01.07 1.0.0 插件发布
@@ -184,6 +184,6 @@ each:
 （更新必须删除配置文件，新版本配置文件完全不兼容旧版本）
 ```
 
-# bstats
+## bstats
 
 [![bstats](https://bstats.org/signatures/bukkit/Boom.svg)](https://bstats.org/plugin/bukkit/Boom/11445)

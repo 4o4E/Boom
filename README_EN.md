@@ -17,7 +17,7 @@ Provide complete language files, welcome pr other language files
 [![Release](https://img.shields.io/github/v/release/4o4E/Boom?label=Release)](https://github.com/4o4E/Boom/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/4o4E/Boom/total?label=Download)](https://github.com/4o4E/Boom/releases)
 
-# support function
+## support function
 
 All of the following configurations can be configured individually by world(Under `global` are the global settings, Under `each.<world name>` are the settings for individual worlds)
 
@@ -36,17 +36,17 @@ All of the following configurations can be configured individually by world(Unde
 - command transform enter command `a` to use command `b`(can trigger multiple commands)(supports the transfer of console commands)
 - restrict entity generation(percentage)
 
-# configuration
+## configuration
 
 [config.yml](src/main/resources/config.yml)
 
-# lang
+## lang
 
 [lang.yml](src/main/resources/lang.yml)
 
 pr other language files are welcome
 
-# how to configure
+## how to configure
 
 ```yaml
 # The configuration under global is the global configuration
@@ -93,7 +93,7 @@ In the world `example_world2`, fire does not spread and burn blocks
 
 In all other worlds, creeper explosions break blocks, fire spreads and burns blocks
 
-# command
+## command
 
 > The main command of the plugin is `boom`, including the alias `bm`, if it conflicts with other plugin commands, please use `boom`
 
@@ -112,7 +112,7 @@ In all other worlds, creeper explosions break blocks, fire spreads and burns blo
 - `/bm ls` Toggle current world weather to sunny for the next hour
 - `/bm stick` Get the debug stick(used to modify armor stands and display frames)
 
-# permission
+## permission
 
 - `boom.admin` Allow use of plugin directives
 - `boom.bypass.command` Allow skipping instruction filtering
@@ -125,18 +125,18 @@ In all other worlds, creeper explosions break blocks, fire spreads and burns blo
 
 - `boom.stick` Allows getting the debug stick, modifying armor stand and item frame with the debug stick
 
-# download
+## download
 
 - [latest version](https://github.com/4o4E/Boom/releases/latest)
 
-# known issues
+## known issues
 
 - [ ] Armor Stand Debug Stick Sneak-clicking on an armorstand to modify its hitbox sometimes triggers twice in a row
 
   Solution: Sneak and click on the block close to the armorstand
 - [x] ~~Lightning protection for villagers will prevent villagers from becoming zombie villagers(killed by zombies is directly dead)~~ already fixed
 
-# update record
+## update record
 
 ```
 2021.01.07 插件发布-1.0.0
@@ -166,6 +166,6 @@ In all other worlds, creeper explosions break blocks, fire spreads and burns blo
 （更新必须删除配置文件，新版本配置文件完全不兼容旧版本）
 ```
 
-# bstats
+## bstats
 
 ![bstats](https://bstats.org/signatures/bukkit/Boom.svg)
