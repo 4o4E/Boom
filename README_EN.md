@@ -16,7 +16,6 @@ Provide complete language files, welcome pr other language files
 ## support function
 
 All of the following configurations can be configured individually by world(Under `global` are the global settings, Under `each.<world name>` are the settings for individual worlds)
-
 - control entity explosion
 - prevent fire from spreading
 - prevent fire from destroying blocks
@@ -92,7 +91,6 @@ In all other worlds, creeper explosions break blocks, fire spreads and burns blo
 ## command
 
 > The main command of the plugin is `boom`, including the alias `bm`, if it conflicts with other plugin commands, please use `boom`
-
 -`/bm reload` Reload plugin
 -`/bm debug` Toggles acceptance of debug messages
 -`/bm world` View current world name
