@@ -32,8 +32,8 @@ abstract class WeatherCommand(
     override val usage: String
         get() = Lang["plugin_command.usage.${name}"].color()
 
-    abstract fun World.setWeather()
-    abstract fun World.setWeather(length: Int)
+    protected abstract fun World.setWeather()
+    protected abstract fun World.setWeather(length: Int)
 
     override fun onCommand(
         sender: CommandSender,
