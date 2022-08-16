@@ -18,31 +18,18 @@ Provide complete language files, welcome pr other language files
 All of the following configurations can be configured individually by world(Under `global` are the global settings, Under `each.<world name>` are the settings for individual worlds)
 
 - control entity explosion
-
 - prevent fire from spreading
-
 - prevent fire from destroying blocks
-
 - protect farmland from being trampled by entities
-
 - prevent entity transformation (villager, witch, zombie villager, drowned)
-
 - prevent enderman from lifting blocks
-
 - straighten itself when making armorstand spawn(made armorstand have two hands by default)
-
 - keep items on death
-
 - preserve experiences on death
-
 - prevent the use of the bed
-
 - prevent the use of respawn anchor
-
 - prevent players from using commands(The function of command transform will skip this detection)
-
 - command transform enter command `a` to use command `b`(can trigger multiple commands)(supports the transfer of console commands)
-
 - restrict entity generation(percentage)
 
 ## configuration
@@ -107,31 +94,18 @@ In all other worlds, creeper explosions break blocks, fire spreads and burns blo
 > The main command of the plugin is `boom`, including the alias `bm`, if it conflicts with other plugin commands, please use `boom`
 
 -`/bm reload` Reload plugin
-
 -`/bm debug` Toggles acceptance of debug messages
-
 -`/bm world` View current world name
-
 -`/bm sun` Toggle current world weather to sunny for the next 10 minutes
-
 -`/bm sun <world>` Toggles specifying that the world weather will be sunny for the next 10 minutes
-
 -`/bm sun <world> <duration>` Toggles the specified world weather to be sunny for the next specified period of time
-
 -`/bm rain` Toggle current world weather to rain for the next 10 minutes
-
 -`/bm rain <world>` Toggles specifying world weather to be rain for the next 10 minutes
-
 -`/bm rain <world> <duration>` Toggle the specified world weather to rain for the next specified duration
-
 -`/bm thunder` Toggle current world weather to thunderstorms for the next 10 minutes
-
 -`/bm thunder <world>` Toggles specifying world weather to be thunderstorms for the next 10 minutes
-
 -`/bm thunder <world> <duration>` Toggles the specified world weather to be thunderstorms for the next specified duration
-
 -`/bm ls` Toggle current world weather to sunny for the next hour
-
 -`/bm stick` Get the debug stick(used to modify armor stands and display frames)
 
 ## permission
