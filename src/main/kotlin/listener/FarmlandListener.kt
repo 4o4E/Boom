@@ -13,6 +13,9 @@ import top.e404.eplugin.listener.EListener
  * 耕地踩踏监听器
  */
 object FarmlandListener : EListener(PL) {
+    /**
+     * 监听玩家踩耕地
+     */
     @EventHandler
     fun PlayerInteractEvent.onEvent() {
         val block = clickedBlock ?: return
@@ -41,6 +44,9 @@ object FarmlandListener : EListener(PL) {
         )
     }
 
+    /**
+     * 监听实体踩耕地
+     */
     @EventHandler
     fun EntityInteractEvent.onEvent() {
         val world = entity.world.name

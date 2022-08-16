@@ -15,6 +15,9 @@ import top.e404.eplugin.listener.EListener
  * 交互监听器
  */
 object InteractListener : EListener(PL) {
+    /**
+     * 监听玩家交互方块
+     */
     @EventHandler
     fun PlayerInteractEvent.onEvent() {
         // 只检测交互方块

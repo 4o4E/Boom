@@ -12,6 +12,9 @@ import top.e404.eplugin.listener.EListener
  * 爆炸监听器
  */
 object ExplosionListener : EListener(PL) {
+    /**
+     * 监听实体爆炸
+     */
     @EventHandler
     fun EntityExplodeEvent.onEvent() {
         val world = entity.world.name
@@ -53,6 +56,9 @@ object ExplosionListener : EListener(PL) {
         }
     }
 
+    /**
+     * 监听实体改变方块
+     */
     @EventHandler
     fun EntityChangeBlockEvent.onEvent() {
         val world = entity.world.name

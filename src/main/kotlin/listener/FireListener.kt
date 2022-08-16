@@ -11,7 +11,9 @@ import top.e404.eplugin.listener.EListener
  * 火焰相关监听器
  */
 object FireListener : EListener(PL) {
-    // 烧毁
+    /**
+     * 监听方块被烧毁
+     */
     @EventHandler
     fun BlockBurnEvent.onEvent() {
         val world = block.world.name
@@ -34,7 +36,9 @@ object FireListener : EListener(PL) {
         )
     }
 
-    // 蔓延
+    /**
+     * 监听火焰蔓延
+     */
     @EventHandler
     fun BlockIgniteEvent.onEvent() {
         val world = block.world.name

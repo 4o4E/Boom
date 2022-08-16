@@ -14,7 +14,9 @@ import top.e404.eplugin.util.execAsCommand
  * 指令监听器
  */
 object CommandListener : EListener(PL) {
-    // 阻止补全指令名字
+    /**
+     * 阻止补全指令名字
+     */
     @EventHandler
     fun PlayerCommandSendEvent.onEvent() {
         if (player.hasPermission("boom.bypass.command")) return
@@ -38,7 +40,9 @@ object CommandListener : EListener(PL) {
         )
     }
 
-    // 使用指令
+    /**
+     * 使用指令
+     */
     @EventHandler
     fun PlayerCommandPreprocessEvent.onEvent() {
         val command = message.substring(1) // 去除开头/
@@ -91,7 +95,9 @@ object CommandListener : EListener(PL) {
         }
     }
 
-    // 控制台使用指令
+    /**
+     * 控制台使用指令
+     */
     @EventHandler
     fun ServerCommandEvent.onEvent() {
         // 检测指令转接

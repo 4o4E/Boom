@@ -11,7 +11,9 @@ import top.e404.eplugin.listener.EListener
  * 伤害监听器
  */
 object DamageListener : EListener(PL) {
-    // 伤害取消
+    /**
+     * 伤害取消
+     */
     @EventHandler
     fun EntityDamageEvent.onEvent() {
         val entity = entity

@@ -11,6 +11,9 @@ import top.e404.eplugin.listener.EListener
  * 实体转变监听器
  */
 object TransformListener : EListener(PL) {
+    /**
+     * 监听实体转变
+     */
     @EventHandler
     fun EntityTransformEvent.onEvent() {
         val from = entity.type

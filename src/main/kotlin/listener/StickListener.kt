@@ -21,7 +21,9 @@ import top.e404.eplugin.util.mcVer
  * 调试棒监听器
  */
 object StickListener : EListener(PL) {
-    // 点击方块
+    /**
+     * 监听玩家交互方块
+     */
     @EventHandler
     fun PlayerInteractEvent.onEvent() {
         if (hand != EquipmentSlot.HAND
@@ -71,7 +73,9 @@ object StickListener : EListener(PL) {
         }
     }
 
-    // 盔甲架 交互
+    /**
+     * 监听玩家交互盔甲架
+     */
     @EventHandler(priority = EventPriority.LOWEST)
     fun PlayerArmorStandManipulateEvent.onEvent() {
         val entity = rightClicked
@@ -95,7 +99,9 @@ object StickListener : EListener(PL) {
         }
     }
 
-    // 盔甲架 伤害
+    /**
+     * 监听玩家伤害盔甲架
+     */
     @EventHandler
     fun EntityDamageByEntityEvent.onEvent() {
         val player = damager
@@ -112,7 +118,9 @@ object StickListener : EListener(PL) {
         plugin.sendMsgWithPrefix(player, Lang["armorstand.rotated"])
     }
 
-    // 展示框
+    /**
+     * 监听玩家交互展示框
+     */
     @EventHandler
     fun PlayerInteractEntityEvent.onEvent() {
         val entity = rightClicked

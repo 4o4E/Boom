@@ -10,6 +10,9 @@ import top.e404.eplugin.listener.EListener
  * 死亡监听器
  */
 object DeathListener : EListener(PL) {
+    /**
+     * 玩家死亡监听器
+     */
     @EventHandler
     fun PlayerDeathEvent.onEvent() {
         val lvl = Config.getConfig(entity.location) { keepLevelOnDeath } == true

@@ -18,6 +18,9 @@ import top.e404.eplugin.listener.EListener
  * 点击监听器
  */
 object ClickListener : EListener(PL) {
+    /**
+     * 交互监听器
+     */
     @EventHandler
     fun PlayerInteractEvent.onEvent() {
         val block = clickedBlock ?: return
@@ -77,6 +80,9 @@ object ClickListener : EListener(PL) {
         }
     }
 
+    /**
+     * 方块破坏监听器
+     */
     @EventHandler
     fun BlockBreakEvent.onEvent() {
         val block = block
@@ -133,6 +139,9 @@ object ClickListener : EListener(PL) {
         }
     }
 
+    /**
+     * 点击实体监听器
+     */
     @EventHandler
     fun PlayerInteractEntityEvent.onEvent() {
         val cfg = Config.getConfig(player.location) { preventClickEntity } ?: return
@@ -192,6 +201,9 @@ object ClickListener : EListener(PL) {
         }
     }
 
+    /**
+     * 破坏挂起实体监听器
+     */
     @EventHandler
     fun HangingBreakByEntityEvent.onEvent() {
         val remover = remover
@@ -253,6 +265,9 @@ object ClickListener : EListener(PL) {
         }
     }
 
+    /**
+     * 伤害实体监听器
+     */
     @EventHandler
     fun EntityDamageByEntityEvent.onEvent() {
         val damager = damager

@@ -11,7 +11,9 @@ import kotlin.random.Random
  * 实体生成监听器
  */
 object SpawnListener : EListener(PL) {
-    // 生成几率控制
+    /**
+     * 控制实体生成
+     */
     @EventHandler
     fun EntitySpawnEvent.onEvent() {
         val entity = entity
