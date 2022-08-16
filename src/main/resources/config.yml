@@ -199,9 +199,10 @@ global:
   # 格式 实体名字: 生成几率(几率 <= 0 时不生成, >= 100不处理)
   # 几率意为在原版生成的基础上修改, 不能在原版实体生成之外额外生成
   # 不判断实体生成原因, 自然生成和刷怪蛋或者其他插件生成的怪物都受以下规则影响
+  # 可用实体: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html
   limit_entity_spawn:
-    # bat: 0 # 意为阻止所有的蝙蝠生成(几率0%)
-    # zombified_piglin: 50 # 意为僵尸猪灵只有50%的几率生成(其他的生成会被取消)
+    # BAT: 0 # 意为阻止所有的蝙蝠生成(几率0%)
+    # ZOMBIFIED_PIGLIN: 50 # 意为僵尸猪灵只有50%的几率生成(其他的生成会被取消)
 
   # 阻止玩家使用物品点击方块
   # 空手时item为AIR
