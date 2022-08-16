@@ -10,11 +10,7 @@
 
 提供完整语言文件, 欢迎pr其他的语言文件
 
-**不支持`1.12`及以下版本**
-
-**不支持`Sponge`核心**
-
-**不支持`Mohist`/`Arclight`/`CatServer`等任何的添加了mod支持的服务端核心，不支持MOD实体的处理**(你可以用, 但是遇到问题请不要在这儿反馈)
+## 不支持`1.12`及以下版本, 不支持`Sponge`核心, 不支持`Mohist`/`Arclight`/`CatServer`等任何的添加了mod支持的服务端核心，不支持MOD实体的处理(你可以用, 但是遇到问题请不要在这儿反馈)
 
 [![Release](https://img.shields.io/github/v/release/4o4E/Boom?label=Release)](https://github.com/4o4E/Boom/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/4o4E/Boom/total?label=Download)](https://github.com/4o4E/Boom/releases)

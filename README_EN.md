@@ -4,15 +4,11 @@
 
 Support `Bukkit` branch such as `Bukkit`/`Spigot`/`Paper`/`Purpur`
 
-Support `1.13.x`-`1.19.x`, `1.16.x`-`1.18.x` tested
+Support `1.13.x`-`1.19.x`, `1.16.x`-`1.19.x` tested
 
 Provide complete language files, welcome pr other language files
 
-**1.12 and below are not supported**
-
-**`Sponge` core is not supported**
-
-**Does not support `Mohist`/`Arclight`/`CatServer` etc. any server core with mod support added, handling of MOD entities is not supported**(You can use it, but please don't report any problems here)
+## 1.12 and below are not supported, `Sponge` core is not supported, Does not support `Mohist`/`Arclight`/`CatServer` etc. any server core with mod support added, handling of MOD entities is not supported(You can use it, but please don't report any problems here)
 
 [![Release](https://img.shields.io/github/v/release/4o4E/Boom?label=Release)](https://github.com/4o4E/Boom/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/4o4E/Boom/total?label=Download)](https://github.com/4o4E/Boom/releases)
