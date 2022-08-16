@@ -1,14 +1,20 @@
 package top.e404.boom.command
 
 import org.bukkit.Bukkit
+import org.bukkit.World
 import org.bukkit.command.CommandSender
 import top.e404.boom.PL
 import top.e404.boom.config.Lang
-import top.e404.boom.weather.thunder
 import top.e404.eplugin.EPlugin.Companion.color
 import top.e404.eplugin.command.ECommand
 import top.e404.eplugin.util.parseAsDuration
 
+/**
+ * 对天气指令的抽象
+ *
+ * @property name 指令名字
+ * @property regex 指令正则
+ */
 abstract class WeatherCommand(
     override val name: String,
     override val regex: Regex
@@ -26,6 +32,9 @@ abstract class WeatherCommand(
     override val usage: String
         get() = Lang["plugin_command.usage.${name}"].color()
 
+    abstract fun World.setWeather()
+    abstract fun World.setWeather(length: Int)
+
     override fun onCommand(
         sender: CommandSender,
         args: Array<out String>
@@ -33,7 +42,7 @@ abstract class WeatherCommand(
         when (args.size) {
             1 -> {
                 val player = plugin.asPlayer(sender, true) ?: return
-                player.world.thunder()
+                player.world.setWeather()
                 plugin.sendMsgWithPrefix(
                     sender,
                     Lang[
@@ -44,6 +53,7 @@ abstract class WeatherCommand(
                     ]
                 )
             }
+
             2 -> {
                 val world = Bukkit.getWorld(args[1])
                 if (world == null) {
@@ -56,7 +66,7 @@ abstract class WeatherCommand(
                     )
                     return
                 }
-                world.thunder()
+                world.setWeather()
                 plugin.sendMsgWithPrefix(
                     sender,
                     Lang[
@@ -67,6 +77,7 @@ abstract class WeatherCommand(
                     ]
                 )
             }
+
             3 -> {
                 val (_, worldName, length) = args
                 val world = Bukkit.getWorld(worldName)
@@ -91,7 +102,7 @@ abstract class WeatherCommand(
                     )
                     return
                 }
-                world.thunder(duration * 20)
+                world.setWeather(duration * 20)
                 plugin.sendMsgWithPrefix(
                     sender,
                     Lang[
@@ -102,6 +113,7 @@ abstract class WeatherCommand(
                     ]
                 )
             }
+
             else -> sender.sendMessage(usage)
         }
     }
