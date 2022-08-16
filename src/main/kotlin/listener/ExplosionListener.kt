@@ -8,6 +8,9 @@ import top.e404.boom.PL
 import top.e404.boom.config.Config
 import top.e404.eplugin.listener.EListener
 
+/**
+ * 爆炸监听器
+ */
 object ExplosionListener : EListener(PL) {
     @EventHandler
     fun EntityExplodeEvent.onEvent() {

@@ -8,6 +8,9 @@ import top.e404.boom.PL
 import top.e404.boom.config.Config
 import top.e404.eplugin.listener.EListener
 
+/**
+ * 盔甲架相关的监听器
+ */
 object ArmorStandListener : EListener(PL) {
     // 盔甲架修正
     @EventHandler

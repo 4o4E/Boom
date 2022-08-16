@@ -8,6 +8,9 @@ import top.e404.boom.hook.HookManager
 import top.e404.eplugin.EPlugin.Companion.color
 import top.e404.eplugin.command.ECommand
 
+/**
+ * reload指令
+ */
 object Reload : ECommand(
     PL,
     "reload",

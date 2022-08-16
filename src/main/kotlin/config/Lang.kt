@@ -3,6 +3,9 @@ package top.e404.boom.config
 import top.e404.boom.PL
 import top.e404.eplugin.config.ELangManager
 
+/**
+ * 插件语言文件
+ */
 object Lang : ELangManager(PL) {
     fun parseSecondAsDuration(second: Int): String {
         var t = second

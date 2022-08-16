@@ -6,6 +6,9 @@ import top.e404.boom.PL
 import top.e404.boom.config.Config
 import top.e404.eplugin.listener.EListener
 
+/**
+ * 死亡监听器
+ */
 object DeathListener : EListener(PL) {
     @EventHandler
     fun PlayerDeathEvent.onEvent() {

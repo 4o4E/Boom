@@ -8,6 +8,9 @@ import top.e404.eplugin.util.editItemMeta
 import top.e404.eplugin.util.lore
 import top.e404.eplugin.util.name
 
+/**
+ * 调试棒
+ */
 object StickItem {
     private val display: String
         get() = Config.stickName

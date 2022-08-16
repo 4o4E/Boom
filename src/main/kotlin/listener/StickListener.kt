@@ -17,6 +17,9 @@ import top.e404.boom.stick.StickItem.isHoldStick
 import top.e404.eplugin.listener.EListener
 import top.e404.eplugin.util.mcVer
 
+/**
+ * 调试棒监听器
+ */
 object StickListener : EListener(PL) {
     // 点击方块
     @EventHandler

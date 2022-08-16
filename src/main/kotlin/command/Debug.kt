@@ -8,6 +8,9 @@ import top.e404.boom.config.Lang
 import top.e404.eplugin.EPlugin.Companion.color
 import top.e404.eplugin.command.AbstractDebugCommand
 
+/**
+ * debug指令
+ */
 object Debug : AbstractDebugCommand(
     PL,
     "boom.admin"

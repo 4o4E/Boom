@@ -4,6 +4,9 @@ import top.e404.boom.PL
 import top.e404.boom.config.Config
 import top.e404.eplugin.update.EUpdater
 
+/**
+ * 更新检查
+ */
 object Update : EUpdater(
     PL,
     url = "https://api.github.com/repos/4o4E/Boom/releases",

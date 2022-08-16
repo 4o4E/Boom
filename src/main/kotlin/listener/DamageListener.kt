@@ -7,6 +7,9 @@ import top.e404.boom.PL
 import top.e404.boom.config.Config
 import top.e404.eplugin.listener.EListener
 
+/**
+ * 伤害监听器
+ */
 object DamageListener : EListener(PL) {
     // 伤害取消
     @EventHandler

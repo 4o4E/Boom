@@ -8,6 +8,9 @@ import top.e404.boom.stick.StickItem
 import top.e404.eplugin.EPlugin.Companion.color
 import top.e404.eplugin.command.ECommand
 
+/**
+ * stick指令
+ */
 object Stick : ECommand(
     PL,
     "stick",

@@ -14,6 +14,9 @@ import top.e404.boom.config.Config
 import top.e404.boom.config.Lang
 import top.e404.eplugin.listener.EListener
 
+/**
+ * 点击监听器
+ */
 object ClickListener : EListener(PL) {
     @EventHandler
     fun PlayerInteractEvent.onEvent() {

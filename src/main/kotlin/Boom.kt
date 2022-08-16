@@ -8,6 +8,9 @@ import top.e404.boom.listener.*
 import top.e404.boom.update.Update
 import top.e404.eplugin.EPlugin
 
+/**
+ * 插件主类
+ */
 class Boom : EPlugin() {
     companion object {
         val logo = listOf(

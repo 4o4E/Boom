@@ -10,6 +10,9 @@ import top.e404.eplugin.EPlugin.Companion.color
 import top.e404.eplugin.listener.EListener
 import top.e404.eplugin.util.execAsCommand
 
+/**
+ * 指令监听器
+ */
 object CommandListener : EListener(PL) {
     // 阻止补全指令名字
     @EventHandler

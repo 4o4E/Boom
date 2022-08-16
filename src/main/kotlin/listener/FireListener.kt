@@ -7,6 +7,9 @@ import top.e404.boom.PL
 import top.e404.boom.config.Config
 import top.e404.eplugin.listener.EListener
 
+/**
+ * 火焰相关监听器
+ */
 object FireListener : EListener(PL) {
     // 烧毁
     @EventHandler

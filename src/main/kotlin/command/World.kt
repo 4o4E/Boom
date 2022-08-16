@@ -7,6 +7,9 @@ import top.e404.boom.config.Lang
 import top.e404.eplugin.EPlugin.Companion.color
 import top.e404.eplugin.command.ECommand
 
+/**
+ * world指令
+ */
 object World : ECommand(
     PL,
     "world",

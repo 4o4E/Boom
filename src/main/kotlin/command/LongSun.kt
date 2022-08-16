@@ -8,6 +8,9 @@ import top.e404.boom.weather.sun
 import top.e404.eplugin.EPlugin.Companion.color
 import top.e404.eplugin.command.ECommand
 
+/**
+ * ls指令
+ */
 object LongSun : ECommand(
     PL,
     "ls",

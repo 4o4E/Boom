@@ -21,6 +21,9 @@ import top.e404.eplugin.util.forEachOp
 import java.text.SimpleDateFormat
 import java.util.*
 
+/**
+ * 插件配置文件
+ */
 object Config : ERegionConfig<BoomConfig, RgConfig>(
     plugin = PL,
     path = "config.yml",

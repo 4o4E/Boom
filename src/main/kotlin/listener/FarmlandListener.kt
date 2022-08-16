@@ -9,6 +9,9 @@ import top.e404.boom.PL
 import top.e404.boom.config.Config
 import top.e404.eplugin.listener.EListener
 
+/**
+ * 耕地踩踏监听器
+ */
 object FarmlandListener : EListener(PL) {
     @EventHandler
     fun PlayerInteractEvent.onEvent() {

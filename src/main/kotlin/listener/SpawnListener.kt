@@ -7,6 +7,9 @@ import top.e404.boom.config.Config
 import top.e404.eplugin.listener.EListener
 import kotlin.random.Random
 
+/**
+ * 实体生成监听器
+ */
 object SpawnListener : EListener(PL) {
     // 生成几率控制
     @EventHandler
