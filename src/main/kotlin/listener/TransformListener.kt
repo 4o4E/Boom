@@ -5,6 +5,7 @@ import org.bukkit.event.EventHandler
 import org.bukkit.event.entity.EntityTransformEvent
 import top.e404.boom.PL
 import top.e404.boom.config.Config
+import top.e404.boom.config.Lang
 import top.e404.eplugin.listener.EListener
 
 /**
@@ -25,40 +26,48 @@ object TransformListener : EListener(PL) {
             if (to == EntityType.WITCH) {
                 if (Config.getConfig(location) { protectVillagerToWitch } == true) {
                     isCancelled = true
-                    plugin.debug(
-                        "transform.prevent_villager_to_witch",
-                        "world" to world,
-                        "x" to location.blockX,
-                        "y" to location.blockY,
-                        "z" to location.blockZ,
-                    )
-                } else plugin.debug(
-                    "transform.pass_villager_to_witch",
-                    "world" to world,
-                    "x" to location.blockX,
-                    "y" to location.blockY,
-                    "z" to location.blockZ,
-                )
+                    plugin.debug {
+                        Lang[
+                                "transform.prevent_villager_to_witch",
+                                "world" to world,
+                                "x" to location.blockX,
+                                "y" to location.blockY,
+                                "z" to location.blockZ,
+                        ]
+                    }
+                } else plugin.debug {
+                    Lang[
+                            "transform.pass_villager_to_witch",
+                            "world" to world,
+                            "x" to location.blockX,
+                            "y" to location.blockY,
+                            "z" to location.blockZ,
+                    ]
+                }
                 return
             }
             // 村民 -> 僵尸村民
             if (to == EntityType.ZOMBIE_VILLAGER) {
                 if (Config.getConfig(location) { protectVillagerToZombie } == true) {
                     isCancelled = true
-                    plugin.debug(
-                        "transform.prevent_villager_to_zombie_villager",
-                        "world" to world,
-                        "x" to location.blockX,
-                        "y" to location.blockY,
-                        "z" to location.blockZ,
-                    )
-                } else plugin.debug(
-                    "transform.pass_villager_to_zombie_villager",
-                    "world" to world,
-                    "x" to location.blockX,
-                    "y" to location.blockY,
-                    "z" to location.blockZ,
-                )
+                    plugin.debug {
+                        Lang[
+                                "transform.prevent_villager_to_zombie_villager",
+                                "world" to world,
+                                "x" to location.blockX,
+                                "y" to location.blockY,
+                                "z" to location.blockZ,
+                        ]
+                    }
+                } else plugin.debug {
+                    Lang[
+                            "transform.pass_villager_to_zombie_villager",
+                            "world" to world,
+                            "x" to location.blockX,
+                            "y" to location.blockY,
+                            "z" to location.blockZ,
+                    ]
+                }
                 return
             }
             return
@@ -69,20 +78,24 @@ object TransformListener : EListener(PL) {
         ) {
             if (Config.getConfig(location) { protectZombieVillagerToVillager } == true) {
                 isCancelled = true
-                plugin.debug(
-                    "transform.prevent_zombie_villager_to_villager",
-                    "world" to world,
-                    "x" to location.blockX,
-                    "y" to location.blockY,
-                    "z" to location.blockZ,
-                )
-            } else plugin.debug(
-                "transform.pass_zombie_villager_to_villager",
-                "world" to world,
-                "x" to location.blockX,
-                "y" to location.blockY,
-                "z" to location.blockZ,
-            )
+                plugin.debug {
+                    Lang[
+                            "transform.prevent_zombie_villager_to_villager",
+                            "world" to world,
+                            "x" to location.blockX,
+                            "y" to location.blockY,
+                            "z" to location.blockZ,
+                    ]
+                }
+            } else plugin.debug {
+                Lang[
+                        "transform.pass_zombie_villager_to_villager",
+                        "world" to world,
+                        "x" to location.blockX,
+                        "y" to location.blockY,
+                        "z" to location.blockZ,
+                ]
+            }
         }
         // 僵尸 -> 溺尸
         if (from == EntityType.ZOMBIE
@@ -90,20 +103,24 @@ object TransformListener : EListener(PL) {
         ) {
             if (Config.getConfig(location) { protectZombieToDrowned } == true) {
                 isCancelled = true
-                plugin.debug(
-                    "transform.prevent_zombie_to_drowned",
-                    "world" to world,
-                    "x" to location.blockX,
-                    "y" to location.blockY,
-                    "z" to location.blockZ,
-                )
-            } else plugin.debug(
-                "transform.pass_zombie_to_drowned",
-                "world" to world,
-                "x" to location.blockX,
-                "y" to location.blockY,
-                "z" to location.blockZ,
-            )
+                plugin.debug {
+                    Lang[
+                            "transform.prevent_zombie_to_drowned",
+                            "world" to world,
+                            "x" to location.blockX,
+                            "y" to location.blockY,
+                            "z" to location.blockZ,
+                    ]
+                }
+            } else plugin.debug {
+                Lang[
+                        "transform.pass_zombie_to_drowned",
+                        "world" to world,
+                        "x" to location.blockX,
+                        "y" to location.blockY,
+                        "z" to location.blockZ,
+                ]
+            }
             return
         }
     }

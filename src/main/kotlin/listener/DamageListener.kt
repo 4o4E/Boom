@@ -5,6 +5,7 @@ import org.bukkit.event.EventHandler
 import org.bukkit.event.entity.EntityDamageEvent
 import top.e404.boom.PL
 import top.e404.boom.config.Config
+import top.e404.boom.config.Lang
 import top.e404.eplugin.listener.EListener
 
 /**
@@ -22,23 +23,27 @@ object DamageListener : EListener(PL) {
         val location = entity.location
         if (Config.getConfig(location) { preventPlayerDamage } == true) {
             isCancelled = true
-            plugin.debug(
-                "player_damage.prevent",
-                "player" to entity.name,
-                "world" to world,
-                "x" to location.blockX,
-                "y" to location.blockY,
-                "z" to location.blockZ,
-            )
+            plugin.debug {
+                Lang[
+                        "player_damage.prevent",
+                        "player" to entity.name,
+                        "world" to world,
+                        "x" to location.blockX,
+                        "y" to location.blockY,
+                        "z" to location.blockZ,
+                ]
+            }
             return
         }
-        plugin.debug(
-            "player_damage.pass",
-            "player" to entity.name,
-            "world" to world,
-            "x" to location.blockX,
-            "y" to location.blockY,
-            "z" to location.blockZ,
-        )
+        plugin.debug {
+            Lang[
+                    "player_damage.pass",
+                    "player" to entity.name,
+                    "world" to world,
+                    "x" to location.blockX,
+                    "y" to location.blockY,
+                    "z" to location.blockZ,
+            ]
+        }
     }
 }

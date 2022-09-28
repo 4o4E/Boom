@@ -5,6 +5,7 @@ import org.bukkit.event.block.BlockBurnEvent
 import org.bukkit.event.block.BlockIgniteEvent
 import top.e404.boom.PL
 import top.e404.boom.config.Config
+import top.e404.boom.config.Lang
 import top.e404.eplugin.listener.EListener
 
 /**
@@ -20,20 +21,24 @@ object FireListener : EListener(PL) {
         val location = block.location
         if (Config.getConfig(location) { disableFireBurn } == true) {
             isCancelled = true
-            plugin.debug(
-                "fire.debug_prevent_spread",
-                "world" to world,
-                "x" to location.blockX,
-                "y" to location.blockY,
-                "z" to location.blockZ,
-            )
-        } else plugin.debug(
-            "fire.debug_pass_spread",
-            "world" to world,
-            "x" to location.blockX,
-            "y" to location.blockY,
-            "z" to location.blockZ,
-        )
+            plugin.debug {
+                Lang[
+                        "fire.debug_prevent_spread",
+                        "world" to world,
+                        "x" to location.blockX,
+                        "y" to location.blockY,
+                        "z" to location.blockZ,
+                ]
+            }
+        } else plugin.debug {
+            Lang[
+                    "fire.debug_pass_spread",
+                    "world" to world,
+                    "x" to location.blockX,
+                    "y" to location.blockY,
+                    "z" to location.blockZ,
+            ]
+        }
     }
 
     /**
@@ -47,19 +52,23 @@ object FireListener : EListener(PL) {
             && cause == BlockIgniteEvent.IgniteCause.SPREAD
         ) {
             isCancelled = true
-            plugin.debug(
-                "fire.debug_prevent_ignite",
-                "world" to world,
-                "x" to location.blockX,
-                "y" to location.blockY,
-                "z" to location.blockZ,
-            )
-        } else plugin.debug(
-            "fire.debug_pass_ignite",
-            "world" to world,
-            "x" to location.blockX,
-            "y" to location.blockY,
-            "z" to location.blockZ,
-        )
+            plugin.debug {
+                Lang[
+                        "fire.debug_prevent_ignite",
+                        "world" to world,
+                        "x" to location.blockX,
+                        "y" to location.blockY,
+                        "z" to location.blockZ,
+                ]
+            }
+        } else plugin.debug {
+            Lang[
+                    "fire.debug_pass_ignite",
+                    "world" to world,
+                    "x" to location.blockX,
+                    "y" to location.blockY,
+                    "z" to location.blockZ,
+            ]
+        }
     }
 }

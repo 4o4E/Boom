@@ -4,6 +4,7 @@ import org.bukkit.event.EventHandler
 import org.bukkit.event.entity.EntitySpawnEvent
 import top.e404.boom.PL
 import top.e404.boom.config.Config
+import top.e404.boom.config.Lang
 import top.e404.eplugin.listener.EListener
 import kotlin.random.Random
 
@@ -24,14 +25,16 @@ object SpawnListener : EListener(PL) {
         if (chance <= 0 || Random.nextInt(101) > chance) {
             isCancelled = true
             val location = entity.location
-            plugin.debug(
-                "debug_limit_spawn",
-                "entity" to entity.type.name,
-                "world" to world,
-                "x" to location.blockX,
-                "y" to location.blockY,
-                "z" to location.blockZ,
-            )
+            plugin.debug {
+                Lang[
+                        "debug_limit_spawn",
+                        "entity" to entity.type.name,
+                        "world" to world,
+                        "x" to location.blockX,
+                        "y" to location.blockY,
+                        "z" to location.blockZ,
+                ]
+            }
         }
     }
 }

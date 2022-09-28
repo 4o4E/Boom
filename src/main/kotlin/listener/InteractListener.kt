@@ -9,6 +9,7 @@ import org.bukkit.inventory.EquipmentSlot
 import org.bukkit.inventory.ItemStack
 import top.e404.boom.PL
 import top.e404.boom.config.Config
+import top.e404.boom.config.Lang
 import top.e404.eplugin.listener.EListener
 
 /**
@@ -32,25 +33,29 @@ object InteractListener : EListener(PL) {
         if (type.endsWith("_BED") || type == "BED") {
             val cfg = Config.getConfig(location) { preventUseBed }
             if (cfg != null && cfg.enable) {
-                plugin.debug(
-                    "bed.prevent_use",
-                    "player" to player.name,
-                    "world" to world,
-                    "x" to location.blockX,
-                    "y" to location.blockY,
-                    "z" to location.blockZ,
-                )
+                plugin.debug {
+                    Lang[
+                            "bed.prevent_use",
+                            "player" to player.name,
+                            "world" to world,
+                            "x" to location.blockX,
+                            "y" to location.blockY,
+                            "z" to location.blockZ,
+                    ]
+                }
                 isCancelled = true
                 if (cfg.message != "") plugin.sendMsgWithPrefix(player, cfg.message)
                 cfg.sound?.playTo(player)
-            } else plugin.debug(
-                "bed.pass_use",
-                "player" to player.name,
-                "world" to world,
-                "x" to location.blockX,
-                "y" to location.blockY,
-                "z" to location.blockZ,
-            )
+            } else plugin.debug {
+                Lang[
+                        "bed.pass_use",
+                        "player" to player.name,
+                        "world" to world,
+                        "x" to location.blockX,
+                        "y" to location.blockY,
+                        "z" to location.blockZ,
+                ]
+            }
             return
         }
         // 重生锚
@@ -61,26 +66,30 @@ object InteractListener : EListener(PL) {
                 && ("respawn_anchor[charges=4]" in block.blockData.asString
                         || !player.isHoldGlowStone())
             ) {
-                plugin.debug(
-                    "respawn_anchor.prevent_use",
-                    "player" to player.name,
-                    "world" to world,
-                    "x" to location.blockX,
-                    "y" to location.blockY,
-                    "z" to location.blockZ,
-                )
+                plugin.debug {
+                    Lang[
+                            "respawn_anchor.prevent_use",
+                            "player" to player.name,
+                            "world" to world,
+                            "x" to location.blockX,
+                            "y" to location.blockY,
+                            "z" to location.blockZ,
+                    ]
+                }
                 isCancelled = true
                 if (cfg.message != "") plugin.sendMsgWithPrefix(player, cfg.message)
                 cfg.sound?.playTo(player)
             } else
-                plugin.debug(
-                    "respawn_anchor.pass_use",
-                    "player" to player.name,
-                    "world" to world,
-                    "x" to location.blockX,
-                    "y" to location.blockY,
-                    "z" to location.blockZ,
-                )
+                plugin.debug {
+                    Lang[
+                            "respawn_anchor.pass_use",
+                            "player" to player.name,
+                            "world" to world,
+                            "x" to location.blockX,
+                            "y" to location.blockY,
+                            "z" to location.blockZ,
+                    ]
+                }
             return
         }
     }

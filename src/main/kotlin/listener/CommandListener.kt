@@ -6,6 +6,7 @@ import org.bukkit.event.player.PlayerCommandSendEvent
 import org.bukkit.event.server.ServerCommandEvent
 import top.e404.boom.PL
 import top.e404.boom.config.Config
+import top.e404.boom.config.Lang
 import top.e404.eplugin.EPlugin.Companion.color
 import top.e404.eplugin.listener.EListener
 import top.e404.eplugin.util.execAsCommand
@@ -28,16 +29,20 @@ object CommandListener : EListener(PL) {
                 cfg.regexes.any { regex -> regex.matches(command) }
             }
             remove.forEach { commands.remove(it) }
-            plugin.debug(
-                "command.debug_remove_complete",
-                "player" to player.name,
-                "remove" to remove,
-                "commands" to commands
-            )
-        } else plugin.debug(
-            "command.debug_not_remove_complete",
-            "player" to player.name,
-        )
+            plugin.debug {
+                Lang[
+                        "command.debug_remove_complete",
+                        "player" to player.name,
+                        "remove" to remove,
+                        "commands" to commands
+                ]
+            }
+        } else plugin.debug {
+            Lang[
+                    "command.debug_not_remove_complete",
+                    "player" to player.name,
+            ]
+        }
     }
 
     /**
@@ -53,11 +58,13 @@ object CommandListener : EListener(PL) {
                 && preventCfg.enable
                 && preventCfg.regexes.any { regex -> regex.matches(command) }
             ) {
-                plugin.debug(
-                    "command.debug_player_use_disabled",
-                    "player" to player.name,
-                    "command" to command,
-                )
+                plugin.debug {
+                    Lang[
+                            "command.debug_player_use_disabled",
+                            "player" to player.name,
+                            "command" to command,
+                    ]
+                }
                 isCancelled = true
                 preventCfg.message?.send(player, command)
                 preventCfg.log?.log(player, command)
@@ -72,22 +79,26 @@ object CommandListener : EListener(PL) {
             for (trigger in transformCfg.list) if (trigger.match(command)) {
                 // 无权限
                 if (trigger.permission?.let { player.hasPermission(it) } == false) {
-                    plugin.debug(
-                        "command.debug_player_transformed_without_permission",
-                        "player" to player.name,
-                        "command" to command,
-                        "trigger" to trigger.trigger,
-                    )
+                    plugin.debug {
+                        Lang[
+                                "command.debug_player_transformed_without_permission",
+                                "player" to player.name,
+                                "command" to command,
+                                "trigger" to trigger.trigger,
+                        ]
+                    }
                     if (trigger.noperm != "") player.sendMessage(trigger.noperm.color())
                     isCancelled = true
                     return
                 }
-                plugin.debug(
-                    "command.debug_player_use_transformed",
-                    "player" to player.name,
-                    "command" to command,
-                    "trigger" to trigger.trigger,
-                )
+                plugin.debug {
+                    Lang[
+                            "command.debug_player_use_transformed",
+                            "player" to player.name,
+                            "command" to command,
+                            "trigger" to trigger.trigger,
+                    ]
+                }
                 trigger.trigger.forEach { it.execAsCommand(player) }
                 isCancelled = true
                 return
@@ -103,11 +114,13 @@ object CommandListener : EListener(PL) {
         // 检测指令转接
         val (enable, list) = Config.config.global.transformUseCommand ?: return
         if (enable) for (trigger in list) if (trigger.match(command)) {
-            plugin.debug(
-                "command.debug_console_use_transformed",
-                "command" to command,
-                "trigger" to trigger.trigger,
-            )
+            plugin.debug {
+                Lang[
+                        "command.debug_console_use_transformed",
+                        "command" to command,
+                        "trigger" to trigger.trigger,
+                ]
+            }
             trigger.trigger.forEach { it.execAsCommand() }
             isCancelled = true
             return

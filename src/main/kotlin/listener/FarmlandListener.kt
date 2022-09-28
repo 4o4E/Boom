@@ -7,6 +7,7 @@ import org.bukkit.event.entity.EntityInteractEvent
 import org.bukkit.event.player.PlayerInteractEvent
 import top.e404.boom.PL
 import top.e404.boom.config.Config
+import top.e404.boom.config.Lang
 import top.e404.eplugin.listener.EListener
 
 /**
@@ -26,22 +27,26 @@ object FarmlandListener : EListener(PL) {
         val location = block.location
         if (Config.getConfig(location) { protectFarmland } == true) {
             isCancelled = true
-            plugin.debug(
-                "farmland.debug_protect_by_player",
-                "player" to player.name,
-                "world" to world,
-                "x" to location.blockX,
-                "y" to location.blockY,
-                "z" to location.blockZ,
-            )
-        } else plugin.debug(
-            "farmland.debug_pass_by_player",
-            "player" to player.name,
-            "world" to world,
-            "x" to location.blockX,
-            "y" to location.blockY,
-            "z" to location.blockZ,
-        )
+            plugin.debug {
+                Lang[
+                        "farmland.debug_protect_by_player",
+                        "player" to player.name,
+                        "world" to world,
+                        "x" to location.blockX,
+                        "y" to location.blockY,
+                        "z" to location.blockZ,
+                ]
+            }
+        } else plugin.debug {
+            Lang[
+                    "farmland.debug_pass_by_player",
+                    "player" to player.name,
+                    "world" to world,
+                    "x" to location.blockX,
+                    "y" to location.blockY,
+                    "z" to location.blockZ,
+            ]
+        }
     }
 
     /**
@@ -54,19 +59,23 @@ object FarmlandListener : EListener(PL) {
         if (block.type != Material.FARMLAND) return
         if (Config.getConfig(location) { protectFarmland } == true) {
             isCancelled = true
-            plugin.debug(
-                "farmland.debug_protect_by_entity",
-                "world" to world,
-                "x" to location.blockX,
-                "y" to location.blockY,
-                "z" to location.blockZ,
-            )
-        } else plugin.debug(
-            "farmland.debug_pass_by_entity",
-            "world" to world,
-            "x" to location.blockX,
-            "y" to location.blockY,
-            "z" to location.blockZ,
-        )
+            plugin.debug {
+                Lang[
+                        "farmland.debug_protect_by_entity",
+                        "world" to world,
+                        "x" to location.blockX,
+                        "y" to location.blockY,
+                        "z" to location.blockZ,
+                ]
+            }
+        } else plugin.debug {
+            Lang[
+                    "farmland.debug_pass_by_entity",
+                    "world" to world,
+                    "x" to location.blockX,
+                    "y" to location.blockY,
+                    "z" to location.blockZ,
+            ]
+        }
     }
 }

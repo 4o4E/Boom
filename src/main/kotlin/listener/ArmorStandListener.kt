@@ -6,6 +6,7 @@ import org.bukkit.event.entity.CreatureSpawnEvent
 import org.bukkit.util.EulerAngle
 import top.e404.boom.PL
 import top.e404.boom.config.Config
+import top.e404.boom.config.Lang
 import top.e404.eplugin.listener.EListener
 
 /**
@@ -22,13 +23,15 @@ object ArmorStandListener : EListener(PL) {
         val world = entity.world.name
         val location = entity.location
         if (Config.getConfig(location) { fixArmorstandPose } != true) {
-            plugin.debug(
-                "armorstand.debug_fix",
-                "world" to world,
-                "x" to location.blockX,
-                "y" to location.blockY,
-                "z" to location.blockZ,
-            )
+            plugin.debug {
+                Lang[
+                        "armorstand.debug_fix",
+                        "world" to world,
+                        "x" to location.blockX,
+                        "y" to location.blockY,
+                        "z" to location.blockZ,
+                ]
+            }
             return
         }
         entity.setArms(true)
@@ -37,13 +40,15 @@ object ArmorStandListener : EListener(PL) {
         entity.teleport(location.apply {
             yaw = (yaw / 22.5F).toInt() * 22.5F
         })
-        plugin.debug(
-            "armorstand.debug_unfix",
-            "world" to world,
-            "x" to location.blockX,
-            "y" to location.blockY,
-            "z" to location.blockZ,
-        )
+        plugin.debug {
+            Lang[
+                    "armorstand.debug_unfix",
+                    "world" to world,
+                    "x" to location.blockX,
+                    "y" to location.blockY,
+                    "z" to location.blockZ,
+            ]
+        }
         return
     }
 }
