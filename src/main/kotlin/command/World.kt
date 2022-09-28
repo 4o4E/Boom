@@ -13,7 +13,7 @@ import top.e404.eplugin.command.ECommand
 object World : ECommand(
     PL,
     "world",
-    Regex("(?i)world"),
+    "(?i)world",
     true,
     "boom.admin"
 ) {

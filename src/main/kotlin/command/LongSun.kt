@@ -14,7 +14,7 @@ import top.e404.eplugin.command.ECommand
 object LongSun : ECommand(
     PL,
     "ls",
-    Regex("(?i)ls|longsun"),
+    "(?i)ls|longsun",
     true,
     "boom.weather.sun"
 ) {

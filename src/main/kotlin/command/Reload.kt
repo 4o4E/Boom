@@ -14,7 +14,7 @@ import top.e404.eplugin.command.ECommand
 object Reload : ECommand(
     PL,
     "reload",
-    Regex("(?i)reload|r"),
+    "(?i)reload|r",
     false,
     "boom.admin"
 ) {

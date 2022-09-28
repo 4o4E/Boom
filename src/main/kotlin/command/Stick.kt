@@ -14,7 +14,7 @@ import top.e404.eplugin.command.ECommand
 object Stick : ECommand(
     PL,
     "stick",
-    Regex("(?i)(get)?stick"),
+    "(?i)(get)?stick",
     true,
     "boom.stick"
 ) {

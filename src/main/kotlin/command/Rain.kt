@@ -8,7 +8,7 @@ import top.e404.boom.weather.rain
  */
 object Rain : WeatherCommand(
     "rain",
-    Regex("(?i)rain"),
+    "(?i)rain",
 ) {
     override fun World.setWeather() = rain()
 

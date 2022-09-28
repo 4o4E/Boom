@@ -8,7 +8,7 @@ import top.e404.boom.weather.sun
  */
 object Sun : WeatherCommand(
     "sun",
-    Regex("(?i)sun"),
+    "(?i)sun",
 ) {
     override fun World.setWeather() = sun()
 

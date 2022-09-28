@@ -17,7 +17,7 @@ import top.e404.eplugin.util.parseAsDuration
  */
 abstract class WeatherCommand(
     override val name: String,
-    override val regex: Regex
+    regex: String
 ) : ECommand(
     PL,
     name,

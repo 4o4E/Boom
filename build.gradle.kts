@@ -7,8 +7,9 @@ plugins {
 }
 
 group = "top.e404"
-version = "2.0.9"
-val ePluginVersion = "1.0.3"
+version = "2.0.10"
+val ePluginVersion = "1.0.4"
+fun eplugin(module: String, version: String = ePluginVersion) = "top.e404:eplugin-${module}:${version}"
 
 repositories {
     maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
@@ -21,10 +22,10 @@ dependencies {
     // spigot
     compileOnly("org.spigotmc:spigot-api:1.16.5-R0.1-SNAPSHOT")
     // eplugin
-    implementation("top.e404:eplugin:${ePluginVersion}")
-    implementation("top.e404:eplugin-serialization:${ePluginVersion}")
-    implementation("top.e404:eplugin-serialization-worldguard:${ePluginVersion}")
-    implementation("top.e404:eplugin-hook-worldguard:${ePluginVersion}")
+    implementation(eplugin("core"))
+    implementation(eplugin("serialization"))
+    implementation(eplugin("serialization-worldguard"))
+    implementation(eplugin("hook-worldguard"))
 }
 
 tasks {
