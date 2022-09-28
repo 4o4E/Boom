@@ -139,7 +139,9 @@ data class BoomConfig(
 @Serializable
 data class ExplosionConfig(
     val enable: Boolean = true,
-    val cancel: Boolean = false
+    val cancel: Boolean = false,
+    @SerialName("prevent_damage")
+    val preventDamage: List<@Serializable(RegexSerialization::class) Regex>? = emptyList()
 )
 
 /**

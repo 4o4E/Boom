@@ -32,6 +32,8 @@ explosion:
   debug_pass: "未处理实体爆炸(entity: {entity}, world: {world}, x: {x}, y: {y}, z: {z})"
   debug_cancel: "取消实体爆炸(entity: {entity}, world: {world}, x: {x}, y: {y}, z: {z})"
   debug_prevent: "阻止实体爆炸破坏方块(entity: {entity}, world: {world}, x: {x}, y: {y}, z: {z})"
+  debug_entity_damage_pass: "未处理实体(entity: {damager_entity}, world: {damager_world}, x: {damager_x}, y: {damager_y}, z: {damager_z})爆炸对实体造成伤害(entity: {entity}, world: {world}, x: {x}, y: {y}, z: {z})"
+  debug_entity_damage_prevent: "阻止实体(entity: {damager_entity}, world: {damager_world}, x: {damager_x}, y: {damager_y}, z: {damager_z})爆炸对实体造成伤害(entity: {entity}, world: {world}, x: {x}, y: {y}, z: {z})"
 
 fire:
   debug_prevent_spread: "阻止火焰蔓延(world: {world}, x: {x}, y: {y}, z: {z})"

@@ -20,6 +20,11 @@ global:
       enable: true
       # 设置为true直接取消爆炸
       cancel: false
+      # 阻止爆炸伤害的实体
+      # 支持正则
+      # 实体类型: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html
+      prevent_damage:
+        - DROPPED_ITEM
 
     # TNT
     PRIMED_TNT:
@@ -27,6 +32,11 @@ global:
       enable: true
       # 设置为true直接取消爆炸
       cancel: false
+      # 阻止爆炸伤害的实体
+      # 支持正则
+      # 实体类型: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html
+      prevent_damage:
+        - DROPPED_ITEM
 
     # 末影水晶
     ENDER_CRYSTAL:
@@ -34,6 +44,11 @@ global:
       enable: true
       # 设置为true直接取消爆炸
       cancel: false
+      # 阻止爆炸伤害的实体
+      # 支持正则
+      # 实体类型: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html
+      prevent_damage:
+        - DROPPED_ITEM
 
     # 凋灵方块替换
     WITHER:
@@ -47,6 +62,11 @@ global:
       enable: true
       # 设置为true直接取消爆炸
       cancel: false
+      # 阻止爆炸伤害的实体
+      # 支持正则
+      # 实体类型: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html
+      prevent_damage:
+        - DROPPED_ITEM
 
     # 恶魂火球
     FIREBALL:
@@ -54,6 +74,11 @@ global:
       enable: true
       # 设置为true直接取消爆炸
       cancel: false
+      # 阻止爆炸伤害的实体
+      # 支持正则
+      # 实体类型: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html
+      prevent_damage:
+        - DROPPED_ITEM
 
     # TNT矿车
     MINECART_TNT:
@@ -61,6 +86,11 @@ global:
       enable: true
       # 设置为true直接取消爆炸
       cancel: false
+      # 阻止爆炸伤害的实体
+      # 支持正则
+      # 实体类型: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html
+      prevent_damage:
+        - DROPPED_ITEM
 
   # 设置为true则不允许火焰蔓延
   disable_fire_spread: true
