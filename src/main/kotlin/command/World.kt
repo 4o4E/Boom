@@ -24,6 +24,7 @@ object World : ECommand(
         sender: CommandSender,
         args: Array<out String>
     ) {
-        plugin.sendMsgWithPrefix(sender as Player, Lang["plugin_command.world"])
+        sender as Player
+        plugin.sendMsgWithPrefix(sender, Lang["plugin_command.world", "world" to sender.world.name])
     }
 }
