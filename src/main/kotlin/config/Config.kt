@@ -297,7 +297,7 @@ data class ClickBlockConfig(
     @Serializable(RegexSerialization::class)
     val item: Regex,
     @Serializable(RegexSerialization::class)
-    val block: Regex,
+    val block: Regex? = null,
     @Serializable(ClickTypeSerializer::class)
     val type: ClickType
 )

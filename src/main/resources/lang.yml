@@ -113,8 +113,14 @@ weather:
   thunder: "雷暴"
 
 click:
-  prevent: "阻止玩家{player}手持{item}点击{target}(world: {world}, x: {x}, y: {y}, z: {z})"
-  pass: "未处理玩家{player}手持{item}点击{target}(world: {world}, x: {x}, y: {y}, z: {z})"
+  prevent: "阻止玩家{player}{hand}手持{item}点击{target}(world: {world}, x: {x}, y: {y}, z: {z})"
+  pass: "未处理有boom.bypass.block权限的玩家{player}{hand}手持{item}点击{target}(world: {world}, x: {x}, y: {y}, z: {z})"
+  no_handler: "未处理玩家{player}{hand}手持{item}点击{target}(world: {world}, x: {x}, y: {y}, z: {z})"
+
+click_air:
+  prevent: "阻止玩家{player}{hand}手持{item}点击空气"
+  pass: "未处理有boom.bypass.block权限的玩家{player}{hand}手持{item}点击空气"
+  no_handler: "未处理玩家{player}{hand}手持{item}点击空气"
 
 player_damage:
   prevent: "阻止玩家{player}受到伤害(world: {world}, x: {x}, y: {y}, z: {z})"

@@ -242,14 +242,23 @@ global:
   # 反向匹配正则示例(方块)(除了其中写到的其他都匹配): "(?!(IRON_ORE|DIAMOND_ORE)$).+"
   # 匹配全部示例(匹配所有): ".*"
   prevent_click_block:
+    # - item: ".*" # 玩家点击方块时的物品类型匹配正则 .* 会匹配任意物品
+    #   block: ".*" # 玩家点击的方块类型匹配正则 .* 匹配任意方块 若不写该条, 则匹配点击空气的情况(若为空则永不触发挖掘)
+    #   type: right # 点击的类型 (left/right/all) left对应挖掘, right对应点击
+
+    # 以下内容为示例, 若有需要请自行修改
+
     # 以下这条配置的效果是阻止玩家使用刷怪蛋点击刷怪笼
-#    - # 玩家点击方块时的物品类型匹配正则
-#      item: "(?i)[a-z]+_spawn_egg"
-#      # 玩家点击的方块类型匹配正则
-#      block: "(?i)spawner"
-#      # 点击的类型 (left/right/all)
-#      # left对应挖掘, right对应点击
-#      type: right
+    # - item: "(?i)[a-z]+_spawn_egg"
+    #   block: "(?i)spawner"
+    #   type: right
+
+    # 以下这条配置的效果是阻止玩家用空瓶装水 装水的时候会有点击方块 也会有点击空气
+    # - item: "GLASS_BOTTLE" # 匹配空手右键
+    #   type: right
+    # - item: "GLASS_BOTTLE" # 匹配点击方块
+    #   block: ".*"
+    #   type: right
 
   # 阻止玩家使用物品点击实体
   # 空手时item为AIR
@@ -261,14 +270,20 @@ global:
   # 反向匹配正则示例(实体)(除了其中写到的其他都匹配): "(?!(SPIDER|ZOMBIE)$).+"
   # 匹配全部示例(匹配所有): ".*"
   prevent_click_entity:
+    - item: "(?i)carrot" # 玩家点击实体时的物品类型匹配正则
+      entity: "(?i)pig" # 玩家点击的方块类型匹配正则
+      type: right # 点击的类型 (left/right/all) left对应伤害, right对应点击
+
+    # 以下内容为示例, 若有需要请自行修改
+
     # 以下这条配置的效果是阻止玩家使用胡萝卜点击猪
-#    - # 玩家点击方块时的物品类型匹配正则
-#      item: "(?i)carrot"
-#      # 玩家点击的方块类型匹配正则
-#      entity: "(?i)pig"
-#      # 点击的类型 (left/right/all)
-#      # left对应伤害, right对应点击
-#      type: right
+    # - # 玩家点击方块时的物品类型匹配正则
+    #   item: "(?i)carrot"
+    #   # 玩家点击的方块类型匹配正则
+    #   entity: "(?i)pig"
+    #   # 点击的类型 (left/right/all)
+    #   # left对应伤害, right对应点击
+    #   type: right
 
 # 世界设置
 # 可以自行扩展, 配置格式与global的一致
