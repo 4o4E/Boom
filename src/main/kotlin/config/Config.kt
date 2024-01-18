@@ -13,7 +13,7 @@ import top.e404.boom.hook.RgHook
 import top.e404.eplugin.EPlugin.Companion.color
 import top.e404.eplugin.EPlugin.Companion.placeholder
 import top.e404.eplugin.config.ERegionConfig
-import top.e404.eplugin.config.JarConfig
+import top.e404.eplugin.config.JarConfigDefault
 import top.e404.eplugin.config.RegionConfig
 import top.e404.eplugin.config.serialization.RegexSerialization
 import top.e404.eplugin.util.SoundConfig
@@ -27,7 +27,7 @@ import java.util.*
 object Config : ERegionConfig<BoomConfig, RgConfig>(
     plugin = PL,
     path = "config.yml",
-    default = JarConfig(PL, "config.yml"),
+    default = JarConfigDefault(PL, "config.yml"),
     serializer = RgConfig.serializer(),
     rgHook = RgHook
 ) {
@@ -328,7 +328,7 @@ object ClickTypeSerializer : KSerializer<ClickType> {
 
     override fun deserialize(decoder: Decoder): ClickType {
         val s = decoder.decodeString()
-        return ClickType.values().first { it.regex.matches(s) }
+        return ClickType.entries.first { it.regex.matches(s) }
     }
 
     override fun serialize(encoder: Encoder, value: ClickType) {

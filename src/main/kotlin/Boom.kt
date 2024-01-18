@@ -27,7 +27,11 @@ class Boom : EPlugin() {
     override val prefix: String
         get() = langManager.getOrElse("prefix") { "&7[&aBoom&7]" }
 
-    override fun enableDebug() = Config.debug
+    override var debug
+        get() = Config.config.debug
+        set(value) {
+            Config.config.debug = value
+        }
     override val bstatsId = 11445
     override val langManager by lazy { Lang }
 
