@@ -1,14 +1,15 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.9.20"
-    kotlin("plugin.serialization") version "1.9.20"
-    id("com.github.johnrengelman.shadow") version "7.1.2"
+    kotlin("jvm") version "2.1.0"
+    kotlin("plugin.serialization") version "2.1.0"
+    id("com.gradleup.shadow") version "9.0.0-beta4"
 }
 
 group = "top.e404"
-version = "2.11.0"
-val ePluginVersion = "1.2.0"
+version = "2.12.0"
+val ePluginVersion = "1.4.0"
 fun eplugin(module: String, version: String = ePluginVersion) = "top.e404:eplugin-${module}:${version}"
 
 repositories {
@@ -28,10 +29,18 @@ dependencies {
     implementation(eplugin("hook-worldguard"))
 }
 
-tasks {
-    withType<KotlinCompile> {
-        kotlinOptions.jvmTarget = "1.8"
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_21)
     }
+}
+
+tasks {
 
     processResources {
         filteringCharset = Charsets.UTF_8.name()
