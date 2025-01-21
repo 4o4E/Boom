@@ -5,7 +5,6 @@ import org.bukkit.entity.Player
 import top.e404.boom.PL
 import top.e404.boom.config.Lang
 import top.e404.boom.weather.sun
-import top.e404.eplugin.EPlugin.Companion.color
 import top.e404.eplugin.command.ECommand
 
 /**
@@ -18,8 +17,7 @@ object LongSun : ECommand(
     true,
     "boom.weather.sun"
 ) {
-    override val usage: String
-        get() = Lang["plugin_command.usage.ls"].color()
+    override val usage get() = Lang["plugin_command.usage.ls"]
 
     override fun onCommand(
         sender: CommandSender,
@@ -30,10 +28,10 @@ object LongSun : ECommand(
         plugin.sendMsgWithPrefix(
             sender,
             Lang[
-                    "weather.set",
-                    "world" to sender.world.name,
-                    "duration" to Lang.parseSecondAsDuration(3600),
-                    "weather" to Lang["weather.sun"],
+                "weather.set",
+                "world" to sender.world.name,
+                "duration" to Lang.parseSecondAsDuration(3600),
+                "weather" to Lang["weather.sun"],
             ]
         )
     }

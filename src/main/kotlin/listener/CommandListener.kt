@@ -87,7 +87,7 @@ object CommandListener : EListener(PL) {
                                 "trigger" to trigger.trigger,
                         ]
                     }
-                    if (trigger.noperm != "") player.sendMessage(trigger.noperm.color())
+                    if (trigger.noperm != "") player.sendMessage(trigger.noperm.color)
                     isCancelled = true
                     return
                 }

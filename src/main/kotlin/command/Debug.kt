@@ -5,7 +5,6 @@ import org.bukkit.entity.Player
 import top.e404.boom.PL
 import top.e404.boom.config.Config
 import top.e404.boom.config.Lang
-import top.e404.eplugin.EPlugin.Companion.color
 import top.e404.eplugin.command.AbstractDebugCommand
 
 /**
@@ -15,8 +14,7 @@ object Debug : AbstractDebugCommand(
     PL,
     "boom.admin"
 ) {
-    override val usage: String
-        get() = Lang["plugin_command.usage.debug"].color()
+    override val usage get() = Lang["plugin_command.usage.debug"]
 
     override fun onCommand(
         sender: CommandSender,

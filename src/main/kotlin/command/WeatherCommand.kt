@@ -5,7 +5,6 @@ import org.bukkit.World
 import org.bukkit.command.CommandSender
 import top.e404.boom.PL
 import top.e404.boom.config.Lang
-import top.e404.eplugin.EPlugin.Companion.color
 import top.e404.eplugin.command.ECommand
 import top.e404.eplugin.util.parseAsDuration
 
@@ -29,8 +28,7 @@ abstract class WeatherCommand(
         val complete = listOf("1d", "1h", "30m", "10m")
     }
 
-    override val usage: String
-        get() = Lang["plugin_command.usage.${name}"].color()
+    override val usage get() = Lang["plugin_command.usage.${name}"]
 
     protected abstract fun World.setWeather()
     protected abstract fun World.setWeather(length: Int)
@@ -46,10 +44,10 @@ abstract class WeatherCommand(
                 plugin.sendMsgWithPrefix(
                     sender,
                     Lang[
-                            "weather.set",
-                            "world" to player.world.name,
-                            "duration" to Lang.parseSecondAsDuration(600),
-                            "weather" to Lang["weather.${name}"],
+                        "weather.set",
+                        "world" to player.world.name,
+                        "duration" to Lang.parseSecondAsDuration(600),
+                        "weather" to Lang["weather.${name}"],
                     ]
                 )
             }
@@ -60,8 +58,8 @@ abstract class WeatherCommand(
                     plugin.sendMsgWithPrefix(
                         sender,
                         Lang[
-                                "message.invalid_world",
-                                "world" to args[1]
+                            "message.invalid_world",
+                            "world" to args[1]
                         ]
                     )
                     return
@@ -70,10 +68,10 @@ abstract class WeatherCommand(
                 plugin.sendMsgWithPrefix(
                     sender,
                     Lang[
-                            "weather.set",
-                            "world" to args[1],
-                            "duration" to Lang.parseSecondAsDuration(600),
-                            "weather" to Lang["weather.${name}"],
+                        "weather.set",
+                        "world" to args[1],
+                        "duration" to Lang.parseSecondAsDuration(600),
+                        "weather" to Lang["weather.${name}"],
                     ]
                 )
             }
@@ -85,8 +83,8 @@ abstract class WeatherCommand(
                     plugin.sendMsgWithPrefix(
                         sender,
                         Lang[
-                                "message.invalid_world",
-                                "world" to args[1]
+                            "message.invalid_world",
+                            "world" to args[1]
                         ]
                     )
                     return
@@ -96,8 +94,8 @@ abstract class WeatherCommand(
                     plugin.sendMsgWithPrefix(
                         sender,
                         Lang[
-                                "message.invalid_duration",
-                                "duration" to length
+                            "message.invalid_duration",
+                            "duration" to length
                         ]
                     )
                     return
@@ -106,10 +104,10 @@ abstract class WeatherCommand(
                 plugin.sendMsgWithPrefix(
                     sender,
                     Lang[
-                            "weather.set",
-                            "world" to args[1],
-                            "duration" to Lang.parseSecondAsDuration(duration),
-                            "weather" to Lang["weather.${name}"],
+                        "weather.set",
+                        "world" to args[1],
+                        "duration" to Lang.parseSecondAsDuration(duration),
+                        "weather" to Lang["weather.${name}"],
                     ]
                 )
             }

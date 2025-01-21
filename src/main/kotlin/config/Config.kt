@@ -4,7 +4,6 @@ import kotlinx.serialization.KSerializer
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.descriptors.PrimitiveKind
-import kotlinx.serialization.descriptors.PrimitiveSerialDescriptor
 import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 import org.bukkit.entity.Player
@@ -16,7 +15,8 @@ import top.e404.eplugin.config.ERegionConfig
 import top.e404.eplugin.config.JarConfigDefault
 import top.e404.eplugin.config.RegionConfig
 import top.e404.eplugin.config.serialization.RegexSerialization
-import top.e404.eplugin.util.SoundConfig
+import top.e404.eplugin.config.serialization.primitive
+import top.e404.eplugin.util.LegacySoundConfig
 import top.e404.eplugin.util.forEachOp
 import java.text.SimpleDateFormat
 import java.util.*
@@ -40,7 +40,7 @@ object Config : ERegionConfig<BoomConfig, RgConfig>(
     val stickName: String
         get() = config.stick.name
     val stickLore: List<String>
-        get() = config.stick.lore.map { it.color() }
+        get() = config.stick.lore.map { it.color }
 }
 
 /**
@@ -155,7 +155,7 @@ data class ExplosionConfig(
 data class PreventUseConfig(
     val enable: Boolean,
     val message: String,
-    val sound: SoundConfig?
+    val sound: LegacySoundConfig?
 )
 
 /**
@@ -199,7 +199,7 @@ data class Message(
             "ip" to player.address.toString(),
             "command" to command
         )
-        if (user != "") player.sendMessage(user.p().color())
+        if (user != "") player.sendMessage(user.p().color)
         if (console != "") PL.info(console.p())
         if (op != "") forEachOp { PL.sendMsgWithPrefix(it, op.p()) }
     }
@@ -323,8 +323,7 @@ data class ClickEntityConfig(
  * [ClickType]的序列化和反序列化器
  */
 object ClickTypeSerializer : KSerializer<ClickType> {
-    override val descriptor =
-        PrimitiveSerialDescriptor("top.e404.boom.config.ClickType.Companion.getSerializer", PrimitiveKind.STRING)
+    override val descriptor = primitive(PrimitiveKind.STRING)
 
     override fun deserialize(decoder: Decoder): ClickType {
         val s = decoder.decodeString()

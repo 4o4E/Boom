@@ -4,7 +4,6 @@ import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 import top.e404.boom.PL
 import top.e404.boom.config.Lang
-import top.e404.eplugin.EPlugin.Companion.color
 import top.e404.eplugin.command.ECommand
 
 /**
@@ -17,8 +16,7 @@ object World : ECommand(
     true,
     "boom.admin"
 ) {
-    override val usage: String
-        get() = Lang["plugin_command.usage.world"].color()
+    override val usage get() = Lang["plugin_command.usage.world"]
 
     override fun onCommand(
         sender: CommandSender,

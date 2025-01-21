@@ -5,7 +5,6 @@ import top.e404.boom.PL
 import top.e404.boom.config.Config
 import top.e404.boom.config.Lang
 import top.e404.boom.hook.HookManager
-import top.e404.eplugin.EPlugin.Companion.color
 import top.e404.eplugin.command.ECommand
 
 /**
@@ -18,8 +17,7 @@ object Reload : ECommand(
     false,
     "boom.admin"
 ) {
-    override val usage: String
-        get() = Lang["plugin_command.usage.reload"].color()
+    override val usage get() = Lang["plugin_command.usage.reload"]
 
     override fun onCommand(sender: CommandSender, args: Array<out String>) {
         plugin.runTaskAsync {
@@ -32,8 +30,8 @@ object Reload : ECommand(
                 plugin.sendAndWarn(
                     sender,
                     Lang[
-                            "message.invalid_config",
-                            "file" to "config.yml"
+                        "message.invalid_config",
+                        "file" to "config.yml"
                     ],
                     t
                 )
