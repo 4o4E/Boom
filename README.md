@@ -15,6 +15,9 @@
 [![Release](https://img.shields.io/github/v/release/4o4E/Boom?label=Release)](https://github.com/4o4E/Boom/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/4o4E/Boom/total?label=Download)](https://github.com/4o4E/Boom/releases)
 
+> [!IMPORTANT]
+> 如果高版本tnt防爆失效，把`PRIMED_TNT`改成`TNT`
+
 ## 支持功能
 
 以下所有配置均可以按世界/WorldGuard区域单独配置(在`global`下的是全局设置，在`each.<世界名>`下的是单独世界的设置，`region.<区域名>`下的是区域设置，处理优先级：区域(`region`) -> 世界(`each`) -> 全局(`global`))
