@@ -17,6 +17,7 @@
 
 > [!IMPORTANT]
 > 如果高版本tnt防爆失效，把`PRIMED_TNT`改成`TNT`
+> 
 > tnt矿车: `MINECART_TNT`改成`TNT_MINECART`
 
 ## 支持功能
