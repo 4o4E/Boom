@@ -26,7 +26,7 @@ global:
       prevent_damage:
         - DROPPED_ITEM
 
-    # TNT
+    # TNT，适用于 1.13–1.20.4；1.20.5 起使用 TNT
     PRIMED_TNT:
       # 是否启用, 设置为false则不处理
       enable: true
@@ -38,8 +38,32 @@ global:
       prevent_damage:
         - DROPPED_ITEM
 
-    # 末影水晶
+    # TNT，适用于 1.20.5 及以上；旧版使用 PRIMED_TNT
+    TNT:
+      # 是否启用, 设置为false则不处理
+      enable: true
+      # 设置为true直接取消爆炸
+      cancel: false
+      # 阻止爆炸伤害的实体
+      # 支持正则
+      # 实体类型: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html
+      prevent_damage:
+        - DROPPED_ITEM
+
+    # 末影水晶，适用于 1.13–1.20.4；1.20.5 起使用 END_CRYSTAL
     ENDER_CRYSTAL:
+      # 是否启用, 设置为false则不处理
+      enable: true
+      # 设置为true直接取消爆炸
+      cancel: false
+      # 阻止爆炸伤害的实体
+      # 支持正则
+      # 实体类型: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html
+      prevent_damage:
+        - DROPPED_ITEM
+
+    # 末影水晶，适用于 1.20.5 及以上；旧版使用 ENDER_CRYSTAL
+    END_CRYSTAL:
       # 是否启用, 设置为false则不处理
       enable: true
       # 设置为true直接取消爆炸
@@ -80,8 +104,20 @@ global:
       prevent_damage:
         - DROPPED_ITEM
 
-    # TNT矿车
+    # TNT矿车，适用于 1.13–1.20.4；1.20.5 起使用 TNT_MINECART
     MINECART_TNT:
+      # 是否启用, 设置为false则不处理
+      enable: true
+      # 设置为true直接取消爆炸
+      cancel: false
+      # 阻止爆炸伤害的实体
+      # 支持正则
+      # 实体类型: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html
+      prevent_damage:
+        - DROPPED_ITEM
+
+    # TNT矿车，适用于 1.20.5 及以上；旧版使用 MINECART_TNT
+    TNT_MINECART:
       # 是否启用, 设置为false则不处理
       enable: true
       # 设置为true直接取消爆炸

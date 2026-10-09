@@ -1,0 +1,129 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - '[0-9]*.[0-9]*.[0-9]*'
+
+permissions:
+  contents: read
+
+env:
+  RELEASE_VERSION: ${{ github.ref_name }}
+  MODRINTH_PROJECT_ID: ypSOfGMO # https://modrinth.com/plugin/boome
+
+# Before pushing a numeric tag (for example 2.12.1), set repository Actions secret
+# MODRINTH_TOKEN to a token allowed to read the project and create versions.
+# GITHUB_TOKEN is built in; the Modrinth project ID is configured above.
+# The tag must equal build.gradle.kts's plugin version and have exactly one
+# CHANGELOG.md header: ## [<tag>] - YYYY-MM-DD. No branch pushes publish releases.
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Require Modrinth publishing configuration
+        env:
+          MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
+        shell: bash
+        run: |
+          if [[ -z "${MODRINTH_TOKEN//[[:space:]]/}" ]]; then
+            echo "::error::Set repository Actions secret MODRINTH_TOKEN to a token with permission to publish this project."
+            exit 1
+          fi
+
+      - name: Check out tagged source
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+
+      - name: Validate release version and extract only this release's notes
+        shell: bash
+        run: python3 .github/scripts/release.py prepare "$RELEASE_VERSION" "$RUNNER_TEMP/boom-release/release-notes.md"
+
+      - name: Set up Java 21
+        uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      # EPlugin 1.4.0 binaries are no longer available from the public repository.
+      # Pin the 1.4.0 source revision that provides Boom's existing LegacySoundConfig API.
+      - name: Check out EPlugin 1.4.0
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          repository: 4o4E/EPlugin
+          ref: 0b0f0bf5a411377e7e7390c1af59fbf480596d50 # 1.4.0 with LegacySoundConfig
+          path: .gradle/release-dependencies/EPlugin
+          persist-credentials: false
+
+      - name: Build the pinned EPlugin dependencies
+        shell: bash
+        run: |
+          bash ./gradlew --no-daemon \
+            --project-dir .gradle/release-dependencies/EPlugin \
+            --init-script "$GITHUB_WORKSPACE/.github/scripts/eplugin.init.gradle" \
+            :eplugin-core:publishToMavenLocal \
+            :eplugin-serialization:publishToMavenLocal \
+            :eplugin-hook-worldguard:publishToMavenLocal \
+            :eplugin-serialization-worldguard:publishToMavenLocal
+
+      - name: Build shaded plugin with the Gradle 8.10 wrapper
+        shell: bash
+        run: bash ./gradlew --no-daemon clean shadowJar
+
+      - name: Validate and stage the exact shaded artifact
+        shell: bash
+        run: |
+          python3 .github/scripts/release.py verify-jar "$RELEASE_VERSION"
+          cp "build/libs/Boom-$RELEASE_VERSION.jar" "$RUNNER_TEMP/boom-release/Boom-$RELEASE_VERSION.jar"
+
+      - name: Transfer validated release files
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: boom-release-${{ github.ref_name }}
+          path: |
+            ${{ runner.temp }}/boom-release/Boom-${{ github.ref_name }}.jar
+            ${{ runner.temp }}/boom-release/release-notes.md
+          if-no-files-found: error
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download validated release files
+        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5
+        with:
+          name: boom-release-${{ github.ref_name }}
+          path: release
+
+      - name: Publish the same artifact and notes to GitHub and Modrinth
+        uses: Kira-NT/mc-publish@52307b03863581dec6b652b83e597aec02ebb075 # v3.3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-tag: ${{ github.ref_name }}
+          github-generate-changelog: false
+          github-draft: false
+          github-prerelease: false
+          modrinth-id: ${{ env.MODRINTH_PROJECT_ID }}
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+          files: release/Boom-${{ github.ref_name }}.jar
+          name: Boom ${{ github.ref_name }}
+          version: ${{ github.ref_name }}
+          version-type: release
+          changelog-file: release/release-notes.md
+          loaders: |
+            bukkit
+            spigot
+            paper
+            purpur
+          environment: server
+          game-versions: '[1.13,1.21.11]'
+          game-version-filter: releases
+          java: '21'
+          retry-attempts: 1
+          fail-mode: fail

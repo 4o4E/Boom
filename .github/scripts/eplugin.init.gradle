@@ -1,0 +1,23 @@
+// Build the pinned EPlugin sources with Boom's Java 21 toolchain.
+// WorldGuard is compileOnly; a fixed release avoids the Java 25 snapshot drift.
+allprojects {
+    afterEvaluate {
+        // EPlugin's publications require this artifact, including unused modules.
+        java.withSourcesJar()
+        tasks.withType(JavaCompile).configureEach {
+            sourceCompatibility = '21'
+            targetCompatibility = '21'
+        }
+        tasks.matching { it.name == 'compileKotlin' || it.name == 'compileTestKotlin' }.configureEach {
+            kotlinOptions.jvmTarget = '21'
+        }
+        configurations.configureEach {
+            resolutionStrategy.eachDependency {
+                if (requested.group == 'com.sk89q.worldguard') {
+                    useVersion '7.0.13'
+                    because 'Pin the compile-only API instead of the moving Java 25 snapshot'
+                }
+            }
+        }
+    }
+}
